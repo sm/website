@@ -1,0 +1,171 @@
+!!!
+%html
+  %head
+    %title
+      Bash Deployment and Server Manager (BDSM)
+      = @item[:title]
+    %link{ :href => "/css/screen.css", :rel => "stylesheet", :type => "text/css", :media => "screen" }
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
+
+  %body
+    %a{ :href => "http://github.com/wayneeseguin/bdsm" }
+      %img{ :src => "/images/forkme.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0;" }
+
+    #header_grid
+      %a{ :name => "header" }
+      #header
+        .supportbox_left
+          .logo
+            %a{ :href => "/" }
+              %img{ :src => "/images/logo.png", :width => "190px", :height => "182px",  :alt => "BDSM Logo"}
+        .supportbox_left
+          %h6
+            Donation
+          %h5
+            Love BDSM?
+            A donation would help justify to my family why I spend so much time working on Open Source projects like BDSM.
+          .text-center
+            %a{ :href => "http://www.pledgie.com/campaigns/14153" }
+              %img{ :src => "http://www.pledgie.com/campaigns/14153.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: BDSM and make a donation at www.pledgie.com !" }
+
+        .supportbox_left
+          %h6
+            Recommend
+          %h5
+            If you like my work with BDSM, please recommend me *with a comment as to why you recommend me* on
+            %a{ :href => "http://www.workingwithrails.com/recommendation/for/person/7192-wayne-e-seguin" }
+              Working With Rails
+            –
+            Thank You!
+
+        .supportbox_left
+          %h6
+            IRC
+          %h5
+            I am 'wayneeseguin' in
+            %a{ :href => "http://webchat.freenode.net/?channels=bdsm" }
+              \#bdsm on irc.freenode.net
+            If I do not respond right away, leave a message and I'll respond or leave you a memo when I am around.
+
+        .supportbox_right
+          %h6
+            Sponsors
+          %br/
+          %a{:href => "http://www.blueboxgrp.com/"}
+            %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC", :height => "55px"}
+
+        .clear
+      %br
+      .clear
+
+      #content
+        %center
+          %a{ :href => "#docindex"}
+            ∴ bdsm help # Documentation Index
+
+        %a{ :name => "top" }
+        =yield
+        %a{ :name => "bottom" }
+
+      #docindex
+        %a{:name => "docindex"}
+        .headline
+          BDSM Documentation Index
+        .column
+          %a{:href => "/bdsm/"} BDSM
+          %ul
+            %li
+              %a{:href => "/bdsm/basics/"} Basics
+            %li
+              %a{:href => "/bdsm/best-practices/"} Best Practices
+            %li
+              %a{:href => "/bdsm/prerequisites/"} Prerequisites
+            %li
+              %a{:href => "/bdsm/install/"} Installation
+            %li
+              %a{:href => "/bdsm/upgrading/"} Upgrading
+            %li
+              %a{:href => "/bdsm/cli/"} CLI
+            %li
+              %a{:href => "/bdsm/info/"} Info
+            %li
+              %a{:href => "/bdsm/about/"} About
+            %li
+              %a{:href => "/bdsm/myths/"} Myths
+
+
+        .column
+          %a{:href => "/extensions/"} Extensions
+          %ul
+            %li
+              %a{:href => "/gemsets/basics/"} Basics
+            %li
+              %a{:href => "/gemsets/creating/"} Creating
+            %li
+              %a{:href => "/gemsets/using/"} Using
+            %li
+              %a{:href => "/gemsets/listing/"} Listing
+            %li
+              %a{:href => "/gemsets/deleting/"} Deleting
+            %li
+              %a{:href => "/gemsets/emptying/"} Emptying
+            %li
+              %a{:href => "/gemsets/exporting/"} Exporting (dumping)
+            %li
+              %a{:href => "/gemsets/importing/"} Importing (loading)
+            %li
+              %a{:href => "/gemsets/copying/"} Copying
+            %li
+              %a{:href => "/gemsets/global/"} Global
+            %li
+              %a{:href => "/gemsets/initial/"} Automatic Gemset Initialization
+
+        .column
+          %a{:href => "/integration/"} Integration
+          %ul
+            %li
+              %a{:href => "/integration/scripting/"} Scripting with bdsm
+
+
+        .column
+
+          %a{:href => "/support/"} Help &amp; Support
+          %ul
+            %li
+              %a{:href => "/support/faq/"} FAQ &amp; Notes
+            %li
+              %a{:href => "/support/troubleshooting/"} Troubleshooting
+            %li
+              %a{:href => "/support/irc/"} IRC
+
+          %a{:href => "/development/"} Development
+          %ul
+            %li
+              %a{:href => "/development/list"} Mailing List
+            %li
+              %a{:href => "/development/github/"} Git (GitHub)
+            %li
+              %a{:href => "/development/tracker/"} Pivotal Tracker Project
+            %li
+              %a{:href => "/development/contributing/"} Contributing
+            %li
+              %a{:href => "/development/debugging/"} Debugging
+
+          %a{:href => "/credits/"} Credits
+          %ul
+            %li
+              %a{:href => "/credits/thanks/"} Contributions
+            %li
+              %a{:href => "/credits/donations/"} Donations
+            %li
+              %a{:href => "/credits/funding/"} Funding
+
+      .clear
+
+      #footer
+        Copyright &copy; >= 2010 Wayne E. Seguin
+        &infin;
+
+    :preserve
+      <script src="http://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>
+      <script src="/javascripts/site.js" type="text/javascript"></script>

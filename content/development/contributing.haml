@@ -1,0 +1,75 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/development/" }
+    Development
+  &nbsp;>&nbsp;
+  %a{ :href => "/contributing/" }
+    Contributing
+  %hr
+
+%a{ :name => "contribute" }
+%h1 Contributing to BDSM
+
+%p
+  So, you want to contribute to BDSM? Excellent, we can always do with
+  an extra helping hand (or two). If you're not a great coder, we always
+  appreciate people helping out in the channel and giving support. If you
+  are interested in coding, there are a few things you'll need to know and
+  a few things that make the process in general a lot smoother.
+
+%p
+  We also greatly appreciate documentation patches, submitted from the rvm-site repository.
+
+%h2 General Guidelines
+
+%ol
+  %li
+    When contributing, either keep patches simple or work on a topic branch - this
+    makes it easier for us to merge in discrete changes and means you always keep
+    things seperate where needed.
+  %li
+    The code has to be compatible with bash and takes and almost git-like design architecturally.
+    Many actions (e.g. aliases) simply call out to a script in the ~/.rvm/scripts
+    directory. For an example of the new, simplified style of coding these make
+    sure you check out:
+    %ul
+      %li scripts/snapshot
+      %li scripts/repair
+      %li scripts/tools
+  %li
+    Clean code is preferred - if in doubt, take a look back and refactor.
+  %li
+    Drop into the IRC room (#rvm on freenode) and chat to wayneeseguin if you have a task
+    in mind. You may find someone else has already started on it.
+
+%h2 Handy Tips
+
+%ol
+  %li
+    When you need to test out something on a fresh install, it's simple
+    enough to just move the .rvm folder out of the way, install a new copy
+    and to then move your old copy back when you're finished.
+  %li
+    Generally, working in a clone of the repository is by far the best way
+    to go and from there it is simple to update your main install / ~/.rvm.
+    All you need to do is change to the root directory for it (e.g. ~/Code/rvm),
+    and run:
+    = sh_cmd "./install"
+  %li
+    It helps to use bash as your primary shell but for some features you'll
+    want to have zsh installed as well to ensure compatibility.
+
+%h2 Repositories
+
+%ul
+  %li
+    %strong Main BDSM Repository:
+    %a{:href => "http://github.com/wayneeseguin/bdsm"} wayneeseguin/bdsm
+  %li
+    %strong BDSM Extensions:
+    %a{:href => "http://github.com/wayneeseguin/bdsm-extensions"} wayneeseguin/bdsm-extensions
+  %li
+    %strong BDSM Website:
+    %a{:href => "http://github.com/wayneeseguin/bdsm-site"} wayneeseguin/bdsm-site

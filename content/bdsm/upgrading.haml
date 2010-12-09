@@ -1,0 +1,31 @@
+
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/bdsm/" }
+    bdsm
+  &nbsp;>&nbsp;
+  %a{ :href => "/bdsm/upgrading/" }
+    Upgrading
+  %hr
+
+%h1
+  Upgrading bdsm
+%p
+  bdsm supports two ways of upgrading itself, one to the latest gem and the other to the latest repository source.
+%h3
+  Upgrading to the latest release
+
+%pre.code
+  :preserve
+    ∴ bdsm get latest
+%p
+  Will download and install the latest release.
+%h3
+  Upgrading to the latest repository source
+%pre.code
+  :preserve
+    ∴ bdsm get head
+%p
+  will obtain the latest bdsm repository source and run ./install from that repository.

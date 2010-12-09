@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+
+
+require "compass"
+
+Compass.add_project_configuration('compass_config.rb')
+
+# For compass v0.10 should be:
+# Compass.add_configuration "#{File.dirname(__FILE__)}/compass_config.rb"
+
+compile "/assets/css/*/" do
+  filter :sass, Compass.sass_engine_options
+end
+
+
+route "/assets/css/_*/" do
+  nil # don't output partials, so return nil
+end
+
+route "/assets/images/*/" do
+  nil # don't output partials, so return nil
+end
+compile '/assets/images/*/' do
+  nil
+end
+
+compile '/assets/favicon*' do
+  nil
+end
+
+route "/assets/javascripts/*/" do
+  # don't generate a directory like we do for HTML files
+  item.identifier.sub(%r{^/assets}, '').chop + ".js"
+end
+compile '/assets/javascripts/*/' do
+  nil
+end
+
+route "/assets/css/*/" do
+  # don't generate a directory like we do for HTML files
+  item.identifier.sub(%r{^/assets}, '').chop + ".css"
+end
+
+compile '*' do
+  filter :haml
+  layout "bdsm"
+end
+
+route '*' do
+  item.identifier + "index.html"
+end
+
+layout '*', :haml

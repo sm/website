@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+rvm --create 1.9.2@bdsm-site
+
+if [[ -s bdsm-site.gems ]] ; then
+  rvm gemset import bdsm-site.gems
+fi

@@ -1,0 +1,52 @@
+.text-center
+  %h1
+    Only a submissive server is a good server.
+  %img{ :src => "/images/submissive.png", :alt => "w00t!" }
+
+%br
+%br
+%h1.text-center
+  Bash Deployment &amp; Server Manager
+
+%hr
+%h2
+  Introduction
+
+%p
+  Bash Deployment & Server Manager (BDSM) is a scripting framework.
+
+%h2 Goal
+
+%p
+  The goal of BDSM is to create a framework for maintaining and sharing server
+  side scripts while exposing them through a consistent command line interface (CLI).
+
+%h2 Architecture
+
+%p
+  BDSM itself is the core framework. Users may write / install 'extensions'
+  (think plugins) to the core framework in order to add CLI functionality to BDSM.
+
+%h2 Creating Extensions
+
+%p
+  There are only a few requirements for the 'extensions'. The extension must be a
+  directory. Within this directory are (at least) the subdirectory bin/ with at
+  least one executable file called 'help'. Additionally in the root of the
+  extension directory there must be a text file called VERSION with a version
+  number that follows semantic versioning (http://semver.org/) in the format of
+  X.Y.Z where X,Y and Z are positive integers.
+
+%p
+  The contents of the bin directory can be *any* execuatble file.  This means for
+  example that C compiled binaries, Ruby Scripts, python, lua, etc... may all be
+  used according to requrements and/or user preferences.  Of course the extensions
+  which *I* write will likely be in bash ;)
+
+%h2 Support
+
+%p
+  BDSM is continuously evolving thanks to constant community feedback.
+  The lead developer of RVM (Wayne E. Seguin) is highly responsive,
+  addresses issues quickly and cares about helping the community grow.
+

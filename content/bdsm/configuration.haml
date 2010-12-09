@@ -1,0 +1,36 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/bdsm/" }
+    bdsm
+  &nbsp;>&nbsp;
+  %a{ :href => "/bdsm/configuration/" }
+    Configuration
+  %hr
+
+%h1
+  BDSM Configuration
+%p
+  BDSM has a configuration directory located in $bdsm_config_path which for a
+  typical installation as user to their
+  $HOME directory will be located in ~/.bdsm/config/
+%h2
+  Defaults
+%p
+  bdsm has a set of defaults recorded in the file
+%pre.code
+  :preserve
+    $bdsm_path/config/db
+%p
+  This file is replaced each time you upgrade bdsm so do not edit it.
+
+%h2
+  Overriding Default Settings
+%p
+  In order to override bdsm's default settings, simply place the appropriate key=value entry into the file
+%pre.code
+  :preserve
+    $bdsm_path/config/user
+%p
+  bdsm will then use these settings instead of bdsm's defaults.
