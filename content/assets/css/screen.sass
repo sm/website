@@ -21,17 +21,16 @@ body
   .box
     margin-top: 1em
     padding: 0.8em
-  /* Not used */
+  /* Not used
   .container
     margin: 4em auto
     width: auto
     clear: both
-
   h2
     font-weight: bold
     padding:
       bottom: 10px
-    color: #000
+    color: black
     border:
       style: solid
       top: none
@@ -39,8 +38,7 @@ body
       right: none
       bottom:
         width: 1px
-        color: #CCCCCC
-
+        color: #cccccc
   a
     text-decoration: none
     font-weight: bold
@@ -53,16 +51,15 @@ body
       color: #c7a854
     img
       border: none
-
     table.header
-      background: #eee
+      background: #eeeeee
       margin-top: 1em
       width: 100%
       font-size: small
       thead
         tr
           th
-            text-shadow: 1px 1px 1px #fff
+            text-shadow: 1px 1px 1px white
             text-transform: uppercase
             letter-spacing: 0em
             width: 20%
@@ -78,7 +75,7 @@ body
             padding-left: 0.8em
             p
               font-size: 0.9em
-              color: #555
+              color: #555555
               line-height: 1.5em
               padding: 0em
               a
@@ -88,10 +85,7 @@ body
                   padding-bottom: 0.5em
                   padding-left: 1em
 
-
-
-
-/************* New Design **************/
+/************ New Design *************
 
 center
   margin: 0
@@ -115,18 +109,17 @@ h6
   text-align: center
   margin: 0.3em 0 0 0
 
-
 // content width
-!width = 80%
+$width: 80%
 
 // height of support box on the very top
-!height = 190px
+$height: 190px
 
 =backgroundtex
-  background: #fafaf2 url('/images/bgtex.jpg') repeat
+  background: #fafaf2 url("/images/bgtex.jpg") repeat
 
 =backgroundtex_metal
-  background: #222 url('/images/bg_metal.png') repeat
+  background: #222222 url("/images/bg_metal.png") repeat
 
 =roundcorners
   -moz-border-radius: 10px
@@ -146,18 +139,16 @@ h6
   -o-border-radius-topright: 10px
   border-top-right-radius: 10px
 
-
-=centered(!width)
+=centered($width)
   margin-left: auto
   margin-right: auto
-  width = !width
+  width: $width
 
 =shadow
-  -webkit-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-  -moz-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-  -khtml-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2)
+  -moz-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2)
+  -khtml-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2)
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2)
 
 #header_grid
   height: 200px
@@ -172,13 +163,13 @@ h6
       padding-right: 10px
       padding-left: 10px
       width: 220px
-      height = !height
+      height: $height
       margin: 10px 0 0 0
       float: left
       border-right: 1px solid #323232
       text-align: justify
     .supportbox_right
-      height = !height
+      height: $height
       width: 180px
       margin: 10px 0 0 10px
       margin-right: 40px
@@ -196,7 +187,7 @@ h6
   +shadow
   +backgroundtex
   padding: 1em
-  width = !width
+  width: $width
   clear: both
   font-size: 0.9em
   div
@@ -204,19 +195,18 @@ h6
     &.title
       margin-left: 130px
       line-height: 1em
-      color: #871E05
+      color: #871e05
       font-weight: bold
       font-size: 600%
     &.tagline
       margin-left: 133px
       font-size: 120%
       line-height: 1em
-
   p
     padding: 5px
   pre.code
     margin-bottom: 0.5em
-    background: #fff
+    background: white
     border: 1px solid maroon
     padding: 0.75em
     overflow: auto
@@ -228,13 +218,13 @@ h6
   +topcorners
   margin-top: 1em
   padding: 0.9em
-  width = !width
-  color: #555
+  width: $width
+  color: #555555
   height: 800px
   .headline
     font-size: small
     font-weight: bold
-    text-shadow: 1px 1px 1px #000
+    text-shadow: 1px 1px 1px black
     color: #e4a400
   .column
     width: 22%
@@ -255,7 +245,6 @@ h6
         color: #c7a854
       &:active
         color: #009bdb
-
   li
     margin-left: 0.5em
     margin-top: -0.3em
@@ -271,4 +260,3 @@ h6
   font-size: 0.8em
   text-transform: uppercase
   letter-spacing: 0.4em
-
