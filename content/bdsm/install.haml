@@ -15,8 +15,8 @@
 
 %pre.code
   :preserve
-    version=$(curl http://bdsm.beginrescueend.com/releases/latest.txt) &&
-    curl -O http://bdsm.beginrescueend.com/releases/bdsm-${version}.tar.bz2 &&
+    version=$(curl https://bdsm.beginrescueend.com/releases/latest.txt) &&
+    curl -O https://bdsm.beginrescueend.com/releases/bdsm-${version}.tar.bz2 &&
     tar jxf bdsm-${version}.tar.bz2 &&
     cd bdsm-${version} &&
     ./install
