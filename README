@@ -13,7 +13,9 @@ The site requires that you have ruby 1.9.2 running in your environment.
 (Although you can manually use something else, this is what is setup in the
 .rvmrc file currently.)
 
-You can do this with RVM by typing the following at the command line:
+You can do this with RVM (https://rvm.beginrescueend.com/rvm/install,
+http://rvm.beginrescueend.com/rvm/basics/) by typing the following at the
+command line:
 
 rvm install 1.9.2
 
@@ -52,8 +54,9 @@ You can use Nanoc's AutoCompile feature:
 == Update Submission
 
 Once you are satisfied with your changes to the documentation push it back to
-your github fork and initiate a pull request.
+your github fork and initiate a pull request. Please use topic branches.
 
 == Thanks
 
 Thank you for taking the time to work on the BDSM website!!!
+

@@ -1,0 +1,64 @@
+Thoughts:
+
+1. Why? What's the pain point/frustration this solves?
+  a. Gimme a logline: Like "Top Gun with fanboats". 
+    i. Is it rack for server maintenance? or RVM on steroids?
+    ii. Is it more for development, system administration, or deployment?
+    iii. What's the benefit of writing extensions for it vs. a gem, etc.?
+    
+2. Most devs don't typically write gems, they are consumers. Who are the consumers here? What's the benefit?
+
+Contribution guidelines have copy-paste issues from RVM
+  
+
+Early potential structure:
+
+What is BDSM?
+  a. Description/logline
+  b. Example
+  c. Screencast
+
+Who is it for?
+  a. Sysadmins or Devs? Both?
+  b. Situations/pain points
+  c. Benefits/features
+    i. RVM Gemset integration
+
+Getting Started
+  a. Prereqs
+  b. Installation
+  c. Your first project/Hello World
+  
+Digging deeper (Integration?)
+  a. Scenarios
+    i. Scripting with BDSM
+
+Extensions
+  a. What are extensions?
+  b. Why would I use them?
+  c. Where do I get them?
+  d. How do I install them?
+  e. How do I use them?
+    i. Listing
+    ii. deleting
+    iii. emptying
+  e. What if I want to create my own?
+    i. Creating
+    ii. See Development (?)
+    
+Development
+  a. Github repo
+  b. Pivotal Tracker Project
+  c. Contributing tips
+  d. Debugging
+
+Help & Support
+  a. FAQ
+  b. Troubleshooting
+  c. Contact/IRC
+  
+Credits
+  a. Contributions
+  b. How you can help
+    i. Code
+    ii. Donate/Funding
