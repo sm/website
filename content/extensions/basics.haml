@@ -5,12 +5,12 @@
   %a{ :href => "/extensions/" }
     Extensions
   &nbsp;>&nbsp;
-  %a{ :href => "/overview/" }
-    Overview
+  %a{ :href => "/basics/" }
+    Basics
   %hr
 
 %h1
-  Extensions Overview
+  Extensions Basics
 
 %h2
   Description
@@ -19,11 +19,14 @@
   called 'actions'.
 
 %h2
-  Actions
+  Extension Actions
 %p
   Actions may be scripts and/or binaries. The requirement is that they are of
   a file type that is recognized as executable on the system BDSM is installed
   to . As a precaution BDSM will restrict these types a slight bit futher.
+
+%p
+  In order to be a valid, an extension must provide at least a 'help' action.
 
 %p
   What this means for
@@ -46,4 +49,47 @@
 %p
   This means that no matter the language, everything is available by reading
   the process environment.
+
+
+%h2
+  Installing Extensions
+%p
+  Installation of extensions from the main repository is currently all that is
+  supported through the bdsm CLI API.
+%p
+  Other methods for extension installation are currently being developed.
+
+%p
+  First we pull the extension repository locally to the system,
+%pre.code
+  :preserve
+    root# bdsm udpate repository
+
+%p
+  Then we install the extension(s) that we require.
+%pre.code
+  :preserve
+    root# bdsm install &lt;extension_name&gt; [&lt;extension_name&gt; [ ...]]
+
+%p
+  Additionally, you may also manually copy an extension directory into the
+  extensions directory ("$bdsm_path/extensions").
+
+
+%h2
+  Updating Extensions
+%p
+  Updating extensions from the main repository is done as follows.
+%pre.code
+  :preserve
+    root# bdsm udpate &lt;extension_name&gt;
+
+%h2
+  Extensions Creating / Editing / Developing
+%p
+  Please refer to the
+  %a{:href => "/development/extensions/"}
+    extensions development
+  documentation.
+
 
