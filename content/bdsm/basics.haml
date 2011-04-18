@@ -12,4 +12,67 @@
 %h1 The Basics of BDSM
 
 %p
-  TODO
+  First follow the
+  %a{:href => "/bdsm/install/"}
+    installation documentation
+  and get BDSM running on your system.
+%p
+  As stated on the
+  %a{:href => "/"}
+    main page
+  BDSM is a scripting management framework that happens to be written primarily
+  in bash.
+%h2
+  Extensions
+%p
+  BDSM is centered around the concept of extensions.
+  Extensions can be thought of as a namespaced collection of scripts.
+%p
+  You can
+  %a{:href => "/extensions/"}
+    read more about extensions
+  in the documentation.
+
+%h2
+  Actions
+%p
+  Within each extension there are a set of executable files in the bin/ directory.
+  These are known as extension actions. These actions are what get exposed via
+  the bdsm CLI as an API.
+%p
+  The general BDSM CLI for calling an extension action is,
+%pre.code
+  :preserve
+    user$ bdsm [--trace] <extension> <action> [options]
+
+%p
+  The '--trace' option can be *very* helpful when
+  %a{:href => "/development/extensions/"}
+    developing an extension
+  \.
+
+%h2
+  Modules
+%p
+  When you write an extension you may call upon BDSM modules in order to use
+  pre written functionality in a DSL form. This tends to greatly accelerate the
+  development of system scripts.
+%p
+  Modules can be thought of as say a programming language's standard library
+  where in any of that language's code files you may load the library and then
+  start using it's functionality.
+%p
+  You can
+  %a{:href => "/extensions/"}
+    read more about extensions
+  in the documentation.
+
+%h2
+  Language Agnositc
+%p
+  BDSM is called the 'Bash ...' because that is what it is written in primarily.
+%p
+  That being said, each and every extension action may be written in any
+  language. The requirement for an extension action is that it is an executable
+  file of a type that the system recognizes.
+
