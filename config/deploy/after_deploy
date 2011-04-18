@@ -4,10 +4,15 @@ source $HOME/.rvm/scripts/rvm
 
 cd $HOME/current/
 
-rvm gemset import rvm-site.gems
+if [[ bdsm-site.gems ]] ; then
+  rvm gemset import bdsm-site.gems
+fi
 
 nanoc3 co --verbose
 
 rsync -avgz content/assets/images/ public/images/
-rsync -avgz content/assets/pdf/ public/pdf/
+
+if [[ -d content/assets/pdf ]] ; then
+  rsync -avgz content/assets/pdf/ public/pdf/
+fi
 
