@@ -1,0 +1,91 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/development/" }
+    Development
+  &nbsp;>&nbsp;
+  %a{ :href => "/extensions/" }
+    Extensions
+  %hr
+
+%h1
+  Developing BDSM extensions
+%p
+  For BDSM extensions development, it is recommended that you have a BDSM installation
+  locally for testing your changes and utilizing the workflow defined below.
+
+%h2
+  Prerequisites
+%p
+  The first prerequisite is that you have
+  %a{:href => "http://git-scm.com/"}
+    Git
+  installed (1.7 or higher).
+%p
+  If you have not yet installed BDSM locally, follow the
+  %a{:href => "/bdsm/install/"}
+    installation documentation
+
+%h2
+  Extension development
+%p
+  Developing BDSM extensions is a stragith forward process to get started.
+%p
+  First set your extensions development path in your *development user's* ~/.bdsmrc.
+  On my system, I keep all of my code in ~/projects/bdsm/ related to the BDSM
+  project. This means that my ~/.bdsmrc will contain the following line.
+
+%pre.code
+  :preserve
+    export extensions_development_path="$HOME/projects/bdsm/extensions"
+
+%p
+  Next clone the repositories to the development paths you defined above.
+%pre.code
+  :preserve
+    user$ mkdir -p ~/projects/bdsm
+    user$ git clone git://github.com/wayneeseguin/bdsm-extensions ~/projects/bdsm/extensions
+
+%p
+  We are now ready to start creating extensions.
+%pre.code
+  :preserve
+    user$ bdsm create awesome_extension
+
+%p
+  This creates a package/service extension from a default template in the
+  extensions development path that you defined in ~/.bdsmrc.
+%p
+  Next we edit the extension in your $EDITOR. vim will be launched if no EDITOR
+  variable is set in your shell.
+%pre.code
+  :preserve
+    user$ bdsm edit awesome_extension
+
+%h2 Submitting Extensions
+
+%p
+  Once we are happy with our changes we can add our new extension to a branch and
+  send a pull request. First
+  %a{:href => "https://github.com/wayneeseguin/bdsm-extensions#fork_box"}
+    fork the repository on github
+  into your account.
+%p
+  Next add your github as a remote and checkout a topic branch.
+%pre.code
+  :preserve
+    user$ cd $(bdsm ext src)
+    user$ git remote add github git@github.com:{{your github username}}/bdsm-extensions.git
+    user$ git checkout -b awesome_extension
+    user$ git add awesome_extension/
+    user$ git commit -m "Created initial awesome_extension."
+    user$ git push github awesome_extension
+%p
+  Now browse to your github account's bdsm-extensions repository and issue a
+  pull request to the main repository.
+%p
+  It is advised to leave a message for me (wayneeseguin) in #beginrescueend on
+  irc.freenode.net regarding the pull request and/or discuss your extension with
+  me there. I am very happy to work with you to get your extension running quickly.
+
