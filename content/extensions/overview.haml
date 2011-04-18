@@ -1,0 +1,49 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/extensions/" }
+    Extensions
+  &nbsp;>&nbsp;
+  %a{ :href => "/overview/" }
+    Overview
+  %hr
+
+%h1
+  Extensions Overview
+
+%h2
+  Description
+%p
+  Extensions are best described as a namespaced collection of executable files
+  called 'actions'.
+
+%h2
+  Actions
+%p
+  Actions may be scripts and/or binaries. The requirement is that they are of
+  a file type that is recognized as executable on the system BDSM is installed
+  to . As a precaution BDSM will restrict these types a slight bit futher.
+
+%p
+  What this means for
+  %a{:href => "/development/extensions/"}
+    extension developers
+  is that actions may be written in any language that will be available on the
+  target installation system.
+
+%p
+  Actions must be located within the extension's bin/ directory.
+%p
+  Actions are exposed via the bdsm CLI as an API with the following general format,
+%pre.code
+  :preserve
+    user$ bdsm &lt;extension&gt; &lt;action&gt; [options]
+
+%p
+  Any options that are passed at the end of the command are passed along to the
+  named extension action through a specific exported environment variable.
+%p
+  This means that no matter the language, everything is available by reading
+  the process environment.
+
