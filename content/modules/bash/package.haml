@@ -1,37 +1,6 @@
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/modules/" }
-    Modules
-  &nbsp;>&nbsp;
-  %a{ :href => "/modules/bash/" }
-    Bash
-  &nbsp;>&nbsp;
-  %a{ :href => "/modules/bash/package/" }
-    Package
-  %hr
-
-%h1
-  Bash Package Module
-
+%p Example Usage:
 %p
-  A listing of the available DSL functions (for now).
-%ul
-  %li package_definition()
-  %li package_install()
-  %li package_fetch()
-  %li package_extract()
-  %li package_configure()
-  %li package_build()
-  %li package_make_install()
-  %li package_activate()
-  %li package_deactivate()
-  %li package_activate_if_first()
-  %li package_ldconfig()
-  %li package_profile_d()
-  %li package_uninstall()
-  %li package_patch()
-  %li package_apply_patches()
-  %li package_cli()
-
+  package_definition
+  name &quot;bash&quot;
+  version &quot;4.2&quot;
+  url &quot;ftp.gnu.org/gnu/bash/&quot;

@@ -1,0 +1,56 @@
+%h1 timestamp_set
+%p Sets the variable named 'timestamp' to the current timestamp.
+%h2 Input Parameters
+%p None.
+%h2 Stream Outputs
+%p None.
+%h2 Environmental effects
+%p Sets the variable named 'timestamp' to the current timestamp.
+%h2 Return Codes
+%p 0 for success
+%h2 Failure Scenarios
+%p No failure scenarios currently.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ cat ./test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules trace time # Load the trace module.
+      
+      timestamp_set
+      echo $timestamp
+      
+      user$ $PWD/test
+      2011-04-24T22:28:16
+%h1 timestamp
+%p Prints out the current timestamp.
+%h2 Input Parameters
+%p
+  None required. The first parameter may optionally specify the format to output
+  the time string in. See 'man 1 date' for formatting options.
+%h2 Stream Outputs
+%p
+  Prints the current timestamp as a formatted datetime string to the STDOUT of
+  the calling environment.
+%h2 Environmental effects
+%p None.
+%h2 Return Codes
+%p 0 for success.
+%h2 Failure Scenarios
+%p No failure conditions currently.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ cat ./test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules trace time # Load the trace module.
+      
+      timestamp
+      echo
+      
+      user$ $PWD/test
+      2011-04-24T22:31:54
