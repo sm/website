@@ -1,0 +1,312 @@
+%h1 extension_action
+%p
+  Load the environment for a given extension action and then call it.
+  This is the main function for BDSM.
+%h2 Input Parameters
+%p One or more extension names.
+%h2 Stream Outputs
+%p None.
+%h2 Environmental effects
+%p
+  The current extension's initialize file will be resourced into the current
+  environment.
+%h2 Return Codes
+%p
+  0 for success
+  1 for failure
+%h2 Failure Scenarios
+%p
+  Fails if no extension was given.
+  Fails if no action was given.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      $ cat $HOME/test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules extensions
+      extension_action ext list
+      
+      $  $HOME/test
+      bash fossil git libevent nginx p7zip postgresql rails redis srv tig tmux zeromq zlib
+%h1 extensions_install
+%p Installs the given extensions.
+%h2 Input Parameters
+%p One or more extension names.
+%h2 Stream Outputs
+%p None.
+%h2 Environmental effects
+%p
+  The named extensions will be installed to the filesystem in the BDSM
+  extensions directory.
+%h2 Return Codes
+%p 0 for success
+%h2 Failure Scenarios
+%p Fails if no extensions are passed in to install.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ extensions_install libevent tmux
+%h1 extension_reload
+%p Reloads (re-sources) the current extension's DSL and initialization files.
+%h2 Input Parameters
+%p None.
+%h2 Stream Outputs
+%p None.
+%h2 Environmental effects
+%p
+  The current extension's DSL and initialization files are re-sourced into the
+  calling environment.
+%h2 Return Codes
+%p 0 for success
+%h2 Failure Scenarios
+%p No current failure scenarios.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ extension_reload
+%h1 extension_reinitialize
+%p Reinitializes the current extension.
+%h2 Input Parameters
+%p None.
+%h2 Stream Outputs
+%p None.
+%h2 Environmental effects
+%p
+  The current extension's initialize file will be resourced into the current
+  environment.
+%h2 Return Codes
+%p 0 for success
+%h2 Failure Scenarios
+%p No failure scenarios currently.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ extension_reinitialize
+%h1 extension_version
+%p Outputs the named extension's version
+%h2 Input Parameters
+%p First parameter must be the name of an extension.
+%h2 Stream Outputs
+%p The extension-version string for the named extension.
+%h2 Environmental effects
+%p None.
+%h2 Return Codes
+%p 0 for success
+%h2 Failure Scenarios
+%p Fails if the extension name is not given.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ extension_reinitialize
+%h1 extension_licence
+%p Emits the extension's license file, if it exists.
+%h2 Input Parameters
+%p First parameter may optionally be an extension name.
+%h2 Stream Outputs
+%p If the extension has a LICENSE file then it wil be printed to STDOUT.
+%h2 Environmental effects
+%p None.
+%h2 Return Codes
+%p 0 for success.
+%h2 Failure Scenarios
+%p No failure scenarios currently exist.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      $ cat $HOME/test
+      !/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules extensions
+      extension_license postgresql
+      
+      $ $HOME/test
+      Copyright (c) 2009-2011 Wayne E. Seguin
+      
+      Licensed under the Apache License, Version 2.0 (the \&quot;License\&quot;);
+      you may not use this file except in compliance with the License.
+      You may obtain a copy of the License at
+      
+          http://www.apache.org/licenses/LICENSE-2.0
+      
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an \&quot;AS IS\&quot; BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+%h1 extensions_installed
+%p Lists the extensions installed on the currently running process's system.
+%h2 Input Parameters
+%p None.
+%h2 Stream Outputs
+%p
+  The names of the currently installed non-core extensions are printed to the
+  calling environment's STDOUT.
+%h2 Environmental effects
+%p None.
+%h2 Return Codes
+%p 0 for success.
+%h2 Failure Scenarios
+%p No failure scenarios currently.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      $ cat $HOME/test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules extensions
+      extensions_installed
+      
+      $ $HOME/test
+      bash fossil git libevent nginx p7zip postgresql rails redis tig tmux zeromq zlib
+%h1 extensions_available
+%p
+  Lists the extensions available to install on the currently running process's
+  system.
+%h2 Input Parameters
+%p None.
+%h2 Stream Outputs
+%p
+  The names of the available to install non-core extensions are printed to the
+  calling environment's STDOUT.
+%h2 Environmental effects
+%p None.
+%h2 Return Codes
+%p 0 for success.
+%h2 Failure Scenarios
+%p No failure scenarios currently.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+       $ cat $HOME/test
+       #!/usr/bin/env bash
+       source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+       modules extensions
+       extensions_available
+       $  $HOME/test
+       ack androidsdk apache bash bcrypt cacti cmake ctags curl deploy erlang fossil freetype ghc ghostscript git god iconv imagemagick jpeg keepalived lcms libevent libpng libwmf libxml2 libxslt logrotate lua memcached mercurial mongodb monit mysql nginx node npm openpkg openssl p7zip passenger pcre perl postgresql r rails rainbows readline redis riak rsync rvm screen sphinx sqlite3 subversion system thin tiff tig tmux unicorn unrar zeromq zlib zsh
+%h1 extensions_in_development
+%p Lists the extensions available in the development repository, if set.
+%h2 Input Parameters
+%p None.
+%h2 Stream Outputs
+%p
+  The names of the available to install non-core development repository
+  extensions are printed to the calling environment's STDOUT, if defined.
+%h2 Environmental effects
+%p None.
+%h2 Return Codes
+%p 0 for success.
+%h2 Failure Scenarios
+%p No failure scenarios currently.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+       $ cat $HOME/test
+       #!/usr/bin/env bash
+       source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+       modules extensions
+       extensions_in_development
+       $  $HOME/test
+       ack androidsdk apache bash bcrypt cacti cmake ctags curl deploy erlang fossil freetype ghc ghostscript git god iconv imagemagick jpeg keepalived lcms libevent libpng libwmf libxml2 libxslt logrotate lua memcached mercurial mongodb monit mysql nginx node npm openpkg openssl p7zip passenger pcre perl postgresql r rails rainbows readline redis riak rsync rvm screen sphinx sqlite3 subversion system thin tiff tig tmux unicorn unrar zeromq zlib zsh
+%h1 extensions_in
+%p Lists the extensions in a given directory.
+%h2 Input Parameters
+%p
+  First parameter is a full path a BDSM extensions directory.
+  (example: /usr/local/bdsm/extensions)
+%h2 Stream Outputs
+%p
+  The names of the extensions in the given directory are printed to the
+  calling environment's STDOUT.
+%h2 Environmental effects
+%p None.
+%h2 Return Codes
+%p 0 for success.
+%h2 Failure Scenarios
+%p No failure scenarios currently.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      $ cat $HOME/test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules extensions
+      extensions_in /usr/local/bdsm/extensions
+      
+      $  $HOME/test
+      bash fossil git libevent nginx p7zip postgresql rails redis tig tmux zeromq zlib
+%h1 extension_actions
+%p Lists actions exposed by the named extension.
+%h2 Input Parameters
+%p First parameter is the name of the extension to list actions for.
+%h2 Stream Outputs
+%p
+  The names of the extensions in the given directory are printed to the
+  calling environment's STDOUT.
+%h2 Environmental effects
+%p None.
+%h2 Return Codes
+%p 0 for success.
+%h2 Failure Scenarios
+%p Fails if no extension name is given.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+       $ cat $HOME/test
+       #!/usr/bin/env bash
+       source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+       modules extensions
+       extension_actions &quot;postgresql&quot;
+      
+       $ $HOME/test
+       backup configure help initialize install restart start status stop uninstall upgrade
+%h1 extension_is_installed
+%p Tests if a given extension is installed.
+%h2 Input Parameters
+%p First parameter is an extension name.
+%h2 Stream Outputs
+%p None.
+%h2 Environmental effects
+%p None.
+%h2 Return Codes
+%p
+  0 if the extension is installed.
+  1 if the extension is not installed.
+%h2 Failure Scenarios
+%p Fails if no extension name is given.
+%h2 Usage Examples
+%pre
+  %code
+    :preserve
+      $ cat $HOME/test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules extensions
+      extensions_installed
+      echo
+      for extension in postgresql asdf
+      do
+        if extension_is_installed &quot;${extension}&quot;
+        then
+          echo &quot;${extension} is installed! &quot;
+        else
+          echo &quot;${extension} is NOT installed! &quot;
+        fi
+      done
+      
+      $  $HOME/test
+      bash fossil git libevent mysql nginx node npm p7zip postgresql rails redis tig tmux zeromq zlib
+      postgresql is installed!
+      asdf is NOT installed!
