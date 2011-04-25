@@ -32,7 +32,7 @@
       user$ modules array system
       user$ modules_loaded
       logging trace filesystem array system
-%h2 module_load
+%h2 module_load()
 %p Function Description
 %h4 Input Parameters
 %p Positional Parameter listing and descriptions.
@@ -55,7 +55,7 @@
       
       user$ module_load zebra # This will load zebra into the current context
       Zebra!!!
-%h2 module_is_loaded
+%h2 module_is_loaded()
 %p Checks to see whether or not the named module has been loaded or not.
 %h4 Input Parameters
 %p First parameter is a module name.
@@ -77,7 +77,7 @@
       user$ modules package
       user$ module_is_loaded package
       0
-%h2 modules_loaded
+%h2 modules_loaded()
 %p Outputs a list of all modules that have been loaded.
 %h4 Input Parameters
 %p Positional Parameter listing and descriptions.
@@ -96,7 +96,7 @@
       user$ modules_loaded
       logging trace filesystem
 %p Print out a list of all installed modules.
-%h2 module_dsl
+%h2 module_dsl()
 %p Print out a list of all dsl for the given module.
 %h4 Input Parameters
 %p First parameter is the module name to print out the dsl for.
@@ -116,7 +116,7 @@
     :preserve
       user$ module_dsl defaults
       read_default()
-%h2 modules_list
+%h2 modules_list()
 %p Lists dsl for all modules.
 %h4 Input Parameters
 %p First parameter is the module name to print out the dsl for.
@@ -147,7 +147,7 @@
         array_unshift()
         array_join()
       ... longish output ...
-%h2 modules_docs
+%h2 modules_docs()
 %p Output the module DSL documentation for a given module name.
 %h4 Input Parameters
 %p First parameter is the module name to print out the dsl documentation for.
@@ -169,7 +169,7 @@
       
       Reads default values from an extension's config/defaults file.
       
-      ### Input Parameters
+      ##### Input Parameters
       
       First parameter is the defaults file key to read (key=value).
       Second parameter is the variable name to store the retrieved value in.
@@ -178,29 +178,29 @@
         prefix &lt;name&gt;
         &lt;variable&gt; # If no specifier.
       
-      ### Stream Outputs
+      ##### Stream Outputs
       
       None.
       
-      ### Environmental effects
+      ##### Environmental effects
       
       A variable will be set to the value, if the value is nonempty. If no variable
       name is specified the variable will be assigned the same name as the key.
       
-      ### Return Codes
+      ##### Return Codes
       
       0 for success.
       
-      ### Failure Scenarios
+      ##### Failure Scenarios
       
       Fails if no arguments are passed in, at least need to specify a key.
       
-      ### Usage Examples
+      ##### Usage Examples
       
           user$ read_default &quot;version&quot; prefix &quot;package&quot; # extension is nginx for example
           user$ echo $package_version
           1.0.0
-%h2 modules_docgen
+%h2 modules_docgen()
 %p Lists dsl for all modules.
 %h4 Input Parameters
 %p First parameter is the module name to print out the dsl for.

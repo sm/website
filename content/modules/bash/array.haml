@@ -15,7 +15,7 @@
 %h1
   Module array
 
-%h2 array_is_nonempty
+%h2 array_is_nonempty()
 %p Checks to see if an array with the name given as the first parameter is nonempty.
 %h4 Input Parameters
 %p The first parameter is the name of the array variable.
@@ -40,7 +40,7 @@
       user$ array_is_nonempty the_array
       user$ echo $?
       1
-%h2 array_length
+%h2 array_length()
 %p Return the length of the given array.
 %h4 Input Parameters
 %p First parameter is the name of the array variable.
@@ -59,7 +59,7 @@
       user$ the_array=(1 2 3 4 5)
       user$ array_length the_array
       5
-%h2 array_last_element
+%h2 array_last_element()
 %p Print the last element of the given array.
 %h4 Input Parameters
 %p First parameter is the name of the array variable.
@@ -78,7 +78,7 @@
       $ the_array=(one two three four five)
       $ array_last_element the_array
       five
-%h2 array_first_element
+%h2 array_first_element()
 %p Print the first element of the given array.
 %h4 Input Parameters
 %p First parameter is the name of the array variable.
@@ -97,7 +97,7 @@
       $ the_array=(one two three four five)
       $ array_first_element the_array
       one
-%h2 array_push
+%h2 array_push()
 %p Appends one or more elements to the array with the given name.
 %h4 Input Parameters
 %p
@@ -118,7 +118,7 @@
       $ the_array=(1 2 3 4 5)
       $ array_length the_array
       5
-%h2 array_append
+%h2 array_append()
 %p Return the length of the given array.
 %h4 Input Parameters
 %p
@@ -140,7 +140,7 @@
       user$ array_append the_array 2 3 4 5
       user$ array_join the_array # print the contents of the array, space separated.
       1 2 3 4 5
-%h2 array_length
+%h2 array_length()
 %p Return the length of the given array.
 %h4 Input Parameters
 %p The first parameter is the name of the array variable.
@@ -153,7 +153,7 @@
       $ the_array=(1 2 3 4 5)
       $ array_length the_array
       5
-%h2 array_unshift
+%h2 array_unshift()
 %p
   Prepends one or more elements to the array whose name is given, in the order
   given.
@@ -181,7 +181,7 @@
       $ array_unshift 3 2 1
       user$ array_join the_array # print the contents of the array, space separated.
       1 2 3 4 5
-%h2 array_join
+%h2 array_join()
 %p Joins the named array into a string separated by either a space or a given string.
 %h4 Input Parameters
 %p

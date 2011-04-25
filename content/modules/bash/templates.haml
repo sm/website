@@ -15,7 +15,7 @@
 %h1
   Module templates
 
-%h2 template_exists
+%h2 template_exists()
 %p Checks if a named template file exists in the extension_templates_path
 %h4 Input Parameters
 %p First parameter must be the name of a template file, eg. a string.
@@ -34,7 +34,7 @@
       user$ {{ setup the scenario }}
       user$ function_name {{ parameters }}
       user$ {{ demonstrate the results}}
-%h2 install_template
+%h2 install_template()
 %p Installs a named template to a given location.
 %h4 Input Parameters
 %p
@@ -64,7 +64,7 @@
       user$ install_template &quot;nginx.conf&quot; \
             to &quot;${nginx_path}/nginx.conf&quot; \
             mode 0644 owner &quot;${nginx_user}&quot;
-%h2 seed_template
+%h2 seed_template()
 %p Seed a template file replacing all given keys with given values.
 %h4 Input Parameters
 %p

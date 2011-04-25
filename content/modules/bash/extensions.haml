@@ -15,7 +15,7 @@
 %h1
   Module extensions
 
-%h2 extension_action
+%h2 extension_action()
 %p
   Load the environment for a given extension action and then call it.
   This is the main function for BDSM.
@@ -47,7 +47,7 @@
       
       $  $HOME/test
       bash fossil git libevent nginx p7zip postgresql rails redis srv tig tmux zeromq zlib
-%h2 extensions_install
+%h2 extensions_install()
 %p Installs the given extensions.
 %h4 Input Parameters
 %p One or more extension names.
@@ -66,7 +66,7 @@
   %code
     :preserve
       user$ extensions_install libevent tmux
-%h2 extension_reload
+%h2 extension_reload()
 %p Reloads (re-sources) the current extension's DSL and initialization files.
 %h4 Input Parameters
 %p None.
@@ -85,7 +85,7 @@
   %code
     :preserve
       user$ extension_reload
-%h2 extension_reinitialize
+%h2 extension_reinitialize()
 %p Reinitializes the current extension.
 %h4 Input Parameters
 %p None.
@@ -104,7 +104,7 @@
   %code
     :preserve
       user$ extension_reinitialize
-%h2 extension_version
+%h2 extension_version()
 %p Outputs the named extension's version
 %h4 Input Parameters
 %p First parameter must be the name of an extension.
@@ -121,7 +121,7 @@
   %code
     :preserve
       user$ extension_reinitialize
-%h2 extension_licence
+%h2 extension_licence()
 %p Emits the extension's license file, if it exists.
 %h4 Input Parameters
 %p First parameter may optionally be an extension name.
@@ -157,7 +157,7 @@
       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
       See the License for the specific language governing permissions and
       limitations under the License.
-%h2 extensions_installed
+%h2 extensions_installed()
 %p Lists the extensions installed on the currently running process's system.
 %h4 Input Parameters
 %p None.
@@ -183,7 +183,7 @@
       
       $ $HOME/test
       bash fossil git libevent nginx p7zip postgresql rails redis tig tmux zeromq zlib
-%h2 extensions_available
+%h2 extensions_available()
 %p
   Lists the extensions available to install on the currently running process's
   system.
@@ -210,7 +210,7 @@
        extensions_available
        $  $HOME/test
        ack androidsdk apache bash bcrypt cacti cmake ctags curl deploy erlang fossil freetype ghc ghostscript git god iconv imagemagick jpeg keepalived lcms libevent libpng libwmf libxml2 libxslt logrotate lua memcached mercurial mongodb monit mysql nginx node npm openpkg openssl p7zip passenger pcre perl postgresql r rails rainbows readline redis riak rsync rvm screen sphinx sqlite3 subversion system thin tiff tig tmux unicorn unrar zeromq zlib zsh
-%h2 extensions_in_development
+%h2 extensions_in_development()
 %p Lists the extensions available in the development repository, if set.
 %h4 Input Parameters
 %p None.
@@ -235,7 +235,7 @@
        extensions_in_development
        $  $HOME/test
        ack androidsdk apache bash bcrypt cacti cmake ctags curl deploy erlang fossil freetype ghc ghostscript git god iconv imagemagick jpeg keepalived lcms libevent libpng libwmf libxml2 libxslt logrotate lua memcached mercurial mongodb monit mysql nginx node npm openpkg openssl p7zip passenger pcre perl postgresql r rails rainbows readline redis riak rsync rvm screen sphinx sqlite3 subversion system thin tiff tig tmux unicorn unrar zeromq zlib zsh
-%h2 extensions_in
+%h2 extensions_in()
 %p Lists the extensions in a given directory.
 %h4 Input Parameters
 %p
@@ -263,7 +263,7 @@
       
       $  $HOME/test
       bash fossil git libevent nginx p7zip postgresql rails redis tig tmux zeromq zlib
-%h2 extension_actions
+%h2 extension_actions()
 %p Lists actions exposed by the named extension.
 %h4 Input Parameters
 %p First parameter is the name of the extension to list actions for.
@@ -289,7 +289,7 @@
       
        $ $HOME/test
        backup configure help initialize install restart start status stop uninstall upgrade
-%h2 extension_is_installed
+%h2 extension_is_installed()
 %p Tests if a given extension is installed.
 %h4 Input Parameters
 %p First parameter is an extension name.

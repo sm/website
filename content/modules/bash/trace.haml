@@ -15,7 +15,7 @@
 %h1
   Module trace
 
-%h2 set_ps4
+%h2 set_ps4()
 %p Set the environmental PS4 variable for informative tracing.
 %h4 Input Parameters
 %p None.
@@ -34,7 +34,7 @@
       user$ set_ps4
       user$ echo &quot;'$PS4'&quot;
       ' &gt; ${BASH_SOURCE##${bdsm_path}\/} ${FUNCNAME[0]:+${FUNCNAME[0]}()} ${LINENO} $ '
-%h2 trace
+%h2 trace()
 %p
   Toggle tracing functionality on or off. If 'on' is triggered then every line
   of code execution after the function returns will be displayed in the format
@@ -58,7 +58,7 @@
       &gt;  trace() 1 $ local _option=off
       &gt;  trace() 3 $ [[ off = \o\n ]]
       &gt;  trace() 8 $ set +o xtrace
-%h2 enable_trace
+%h2 enable_trace()
 %p Turns tracing on.
 %h4 Input Parameters
 %p None.
@@ -73,7 +73,7 @@
   %code
     :preserve
       user$ enable_trace
-%h2 disable_trace
+%h2 disable_trace()
 %p Turns tracing off.
 %h4 Input Parameters
 %p None.
@@ -88,7 +88,7 @@
   %code
     :preserve
       user$ disable_trace
-%h2 debug
+%h2 debug()
 %p
   Toggle verbose debugging functionality on or off. If 'on' is triggered then
   every line of code execution after the function returns will be displayed.
@@ -111,7 +111,7 @@
       &gt;  debug() 1 $ local _option=off
       &gt;  debug() 3 $ [[ off = \o\n ]]
       &gt;  debug() 8 $ set +o xdebug
-%h2 enable_debug
+%h2 enable_debug()
 %p Enables verbose debugging output.
 %h4 Input Parameters
 %p None.
@@ -126,7 +126,7 @@
   %code
     :preserve
       user$ enable_debug
-%h2 disable_debug
+%h2 disable_debug()
 %p Disables verbose debugging output.
 %h4 Input Parameters
 %p None.
@@ -141,7 +141,7 @@
   %code
     :preserve
       user$ disable_debug
-%h2 enable_backtrace
+%h2 enable_backtrace()
 %p
   Enables backtrace and program exit whenever a command returns a nonzero value
   that is not handled.
@@ -173,7 +173,7 @@
       Error Backtrace:
          Trace   Line Function             File
             1.      7 main()               /Users/wayneeseguin/test
-%h2 function_name
+%h2 function_name()
 %p Function Description
 %h4 Input Parameters
 %p None.
@@ -197,7 +197,7 @@
       
       user$ ./test
       Error exit with backtrace is now off.
-%h2 backtrace
+%h2 backtrace()
 %p
   Display a backtrace of the current call stack to the point that backtrace was
   called from. Currently trace is turned on as well so that execution after

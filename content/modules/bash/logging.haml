@@ -15,7 +15,7 @@
 %h1
   Module logging
 
-%h2 log
+%h2 log()
 %p Log arguments to the calling environments STDOUT.
 %h4 Input Parameters
 %p Strings to be logged.
@@ -35,7 +35,7 @@
     :preserve
       user$ log &quot;Hello there! &quot;
       Hello there!
-%h2 info
+%h2 info()
 %p Log arguments to the calling environments STDOUT preceeded by 'INFO: .
 %h4 Input Parameters
 %p Strings to be logged.
@@ -55,7 +55,7 @@
     :preserve
       user$ info &quot;Hello there! &quot;
       INFO: Hello there!
-%h2 warn
+%h2 warn()
 %p Log arguments to the calling environments STDOUT preceeded by 'WARNING: .
 %h4 Input Parameters
 %p Strings to be logged.
@@ -75,7 +75,7 @@
     :preserve
       user$ info &quot;Hello there! &quot;
       INFO: Hello there!
-%h2 debug
+%h2 debug()
 %p Log arguments to the calling environments STDOUT preceeded by 'DEBUG: .
 %h4 Input Parameters
 %p Strings to be logged.
@@ -95,7 +95,7 @@
     :preserve
       user$ debug &quot;Hello there! &quot;
       DEBUG: Hello there!
-%h2 error
+%h2 error()
 %p
   Log arguments to the calling environments STDERR preceeded by 'ERROR: '.
   Exits with status code 1.
@@ -118,7 +118,7 @@
       user$ error &quot;Hello there! &quot;
       ERROR: Hello there!
       *poof* shell closed...
-%h2 succeed
+%h2 succeed()
 %p Log arguments to the calling environments STDOUT. Exits with status code 0.
 %h4 Input Parameters
 %p Strings to be logged.
@@ -139,7 +139,7 @@
       user$ succeed &quot;Hello there! &quot;
       Hello there!
       *poof* shell closed...
-%h2 fail
+%h2 fail()
 %p
   Log arguments to the calling environments STDERR preceeded by 'ERROR: '.
   Exits with status code 1.

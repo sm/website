@@ -15,7 +15,7 @@
 %h1
   Module system
 
-%h2 init_scripts_path
+%h2 init_scripts_path()
 %p Returns the system init scripts path (eg. /etc/init.d /etc/rc.d)
 %h4 Input Parameters
 %p None.
@@ -33,7 +33,7 @@
     :preserve
       user@archlinux$ init_scripts_path
       /etc/rc.d
-%h2 confd_path
+%h2 confd_path()
 %p Return the system conf.d path.
 %h4 Input Parameters
 %p None.
@@ -51,7 +51,7 @@
     :preserve
       root# confd_path
       /etc/conf.d
-%h2 os_is_linux
+%h2 os_is_linux()
 %p Tests if the operating system the process is running on is Linux.
 %h4 Input Parameters
 %p None.
@@ -72,7 +72,7 @@
       root@archlinux# os_is_linux
       root@archlinux# echo $?
       0
-%h2 os_is_darwin
+%h2 os_is_darwin()
 %p Tests if the operating system the process is running on is darwin.
 %h4 Input Parameters
 %p None.
@@ -93,7 +93,7 @@
       user@OSX# os_is_darwin
       user@OSX# echo $?
       0
-%h2 os_is_bsd
+%h2 os_is_bsd()
 %p Tests if the operating system the process is running on is bsd.
 %h4 Input Parameters
 %p None.
@@ -114,7 +114,7 @@
       root@bsd# os_is_bsd
       root@bsd# echo $?
       0
-%h2 os_is_solaris
+%h2 os_is_solaris()
 %p Tests if the operating system the process is running on is solaris.
 %h4 Input Parameters
 %p None.
@@ -135,7 +135,7 @@
       root@linux# os_is_linux
       root@linux# echo $?
       0
-%h2 os_is_aix
+%h2 os_is_aix()
 %p Tests if the operating system the process is running on is aix.
 %h4 Input Parameters
 %p None.
@@ -156,7 +156,7 @@
       root@aix# os_is_aix
       root@aix# echo $?
       0
-%h2 os_type
+%h2 os_type()
 %p Prints out the operating system category / type.
 %h4 Input Parameters
 %p None.
@@ -177,7 +177,7 @@
       
       user@osx# os_type
       darwin
-%h2 os_arch_type
+%h2 os_arch_type()
 %p Prints out the OS Arch type.
 %h4 Input Parameters
 %p None.
@@ -197,7 +197,7 @@
     :preserve
       user$ os_arch_type
       x86_64
-%h2 os_arch
+%h2 os_arch()
 %p Prints out the full OS machine type string.
 %h4 Input Parameters
 %p None.
@@ -215,7 +215,7 @@
     :preserve
       user@OSX# os_arch
       i386-apple-darwin10.7.0
-%h2 os_arch_capable
+%h2 os_arch_capable()
 %p Tests if the operating system the process is running on is Linux.
 %h4 Input Parameters
 %p None.
@@ -235,7 +235,7 @@
     :preserve
       user@OSX$ os_arch_capable
       x86_64
-%h2 os_cpu_count
+%h2 os_cpu_count()
 %p Print the number of cpu cores on the current system to STDOUT
 %h4 Input Parameters
 %p None.

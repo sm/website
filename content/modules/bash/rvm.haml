@@ -15,7 +15,7 @@
 %h1
   Module rvm
 
-%h2 rvm_install
+%h2 rvm_install()
 %p Install the latest release version of RVM.
 %h4 Input Parameters
 %p First parameter is an optional version number of RVM to install.
@@ -34,7 +34,7 @@
   %code
     :preserve
       user$ rvm_install
-%h2 install_gem
+%h2 install_gem()
 %p installs the named gem(s) with --no-rdoc --no-ri flags
 %h4 Input Parameters
 %p One or more gem names
@@ -57,7 +57,7 @@
       user$ {{ setup the scenario }}
       user$ function_name {{ parameters }}
       user$ {{ demonstrate the results}}
-%h2 install_gems
+%h2 install_gems()
 %p Installs listed gems using the install_gem function.
 %h4 Input Parameters
 %p One or more rubygems names

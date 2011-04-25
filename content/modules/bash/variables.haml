@@ -15,7 +15,7 @@
 %h1
   Module variables
 
-%h2 first
+%h2 first()
 %p Returns the first parameter.
 %h4 Input Parameters
 %p One or more parameters.
@@ -37,7 +37,7 @@
       user$ array=($(ls $HOME))
       user$ first ${array[@]}
       Desktop
-%h2 last
+%h2 last()
 %p Returns the last parameter.
 %h4 Input Parameters
 %p One or more parameters.
@@ -59,7 +59,7 @@
       user$ array=($(ls $HOME))
       user$ last ${array[@]}
       tmp
-%h2 match
+%h2 match()
 %p Tests to see if a value matches a given regex (shell extended glob pattern).
 %h4 Input Parameters
 %p Positional Parameter listing and descriptions.
@@ -86,7 +86,7 @@
       user$ match &quot;The quick brown fox jumped over the lazy dog.&quot; &quot;*smurf*&quot;
       user$ echo $?
       1
-%h2 variables_must_be_nonempty
+%h2 variables_must_be_nonempty()
 %p
   Halts the program with a fail message if any of the named variables are empty
   or undefined.
@@ -122,7 +122,7 @@
             2.    192 variables_must_be_nonempty() /usr/local/bdsm/modules/bash/variables/dsl
             1.      6 main()               /Users/wayneeseguin/test
        &gt; modules/bash/logging/dsl fail() 38 $ exit 1
-%h2 variable_is_nonempty
+%h2 variable_is_nonempty()
 %p Test to see if a variable is empty.
 %h4 Input Parameters
 %p First parameter is a string containing a variable name.
