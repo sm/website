@@ -1,14 +1,14 @@
-%h1 set_ps4
+%h2 set_ps4
 %p Set the environmental PS4 variable for informative tracing.
-%h2 Input Parameters
+%h4 Input Parameters
 %p None.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure scenarios currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
@@ -17,20 +17,20 @@
       user$ set_ps4
       user$ echo &quot;'$PS4'&quot;
       ' &gt; ${BASH_SOURCE##${bdsm_path}\/} ${FUNCNAME[0]:+${FUNCNAME[0]}()} ${LINENO} $ '
-%h1 trace
+%h2 trace
 %p
   Toggle tracing functionality on or off. If 'on' is triggered then every line
   of code execution after the function returns will be displayed in the format
   specified by the PS4 environment variable (see set_ps4).
-%h2 Input Parameters
+%h4 Input Parameters
 %p First parameter is either empty, 'on' or 'off'
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure scenarios currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
@@ -41,49 +41,49 @@
       &gt;  trace() 1 $ local _option=off
       &gt;  trace() 3 $ [[ off = \o\n ]]
       &gt;  trace() 8 $ set +o xtrace
-%h1 enable_trace
+%h2 enable_trace
 %p Turns tracing on.
-%h2 Input Parameters
+%h4 Input Parameters
 %p None.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success.
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure scenarios currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
       user$ enable_trace
-%h1 disable_trace
+%h2 disable_trace
 %p Turns tracing off.
-%h2 Input Parameters
+%h4 Input Parameters
 %p None.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No current failure scenarios.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
       user$ disable_trace
-%h1 debug
+%h2 debug
 %p
   Toggle verbose debugging functionality on or off. If 'on' is triggered then
   every line of code execution after the function returns will be displayed.
-%h2 Input Parameters
+%h4 Input Parameters
 %p First parameter is either empty, 'on' or 'off'
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure scenarios currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
@@ -94,51 +94,51 @@
       &gt;  debug() 1 $ local _option=off
       &gt;  debug() 3 $ [[ off = \o\n ]]
       &gt;  debug() 8 $ set +o xdebug
-%h1 enable_debug
+%h2 enable_debug
 %p Enables verbose debugging output.
-%h2 Input Parameters
+%h4 Input Parameters
 %p None.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure scenarios currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
       user$ enable_debug
-%h1 disable_debug
+%h2 disable_debug
 %p Disables verbose debugging output.
-%h2 Input Parameters
+%h4 Input Parameters
 %p None.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure scenarios currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
       user$ disable_debug
-%h1 enable_backtrace
+%h2 enable_backtrace
 %p
   Enables backtrace and program exit whenever a command returns a nonzero value
   that is not handled.
-%h2 Input Parameters
+%h4 Input Parameters
 %p
   First parameter is optional. If it is passed it is a message that will be
   outputed when a command trigger the program to error exit.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure conditions currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
@@ -156,17 +156,17 @@
       Error Backtrace:
          Trace   Line Function             File
             1.      7 main()               /Users/wayneeseguin/test
-%h1 function_name
+%h2 function_name
 %p Function Description
-%h2 Input Parameters
+%h4 Input Parameters
 %p None.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure conditions currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
@@ -180,22 +180,22 @@
       
       user$ ./test
       Error exit with backtrace is now off.
-%h1 backtrace
+%h2 backtrace
 %p
   Display a backtrace of the current call stack to the point that backtrace was
   called from. Currently trace is turned on as well so that execution after
   calling backtrace is traced.
-%h2 Input Parameters
+%h4 Input Parameters
 %p None.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p
   The call stack up to the current point of execution is printed to STDOUT of
   the calling environment.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure scenarios currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve

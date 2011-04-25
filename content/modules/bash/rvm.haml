@@ -1,62 +1,62 @@
-%h1 rvm_install
+%h2 rvm_install
 %p Install the latest release version of RVM.
-%h2 Input Parameters
+%h4 Input Parameters
 %p First parameter is an optional version number of RVM to install.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p
   Output from rvm-installer will be printed to the enclosing environment's
   STDOUT as well as curl output.
-%h2 Environmental effects
+%h4 Environmental effects
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p No failure conditions currently.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
       user$ rvm_install
-%h1 install_gem
+%h2 install_gem
 %p installs the named gem(s) with --no-rdoc --no-ri flags
-%h2 Input Parameters
+%h4 Input Parameters
 %p One or more gem names
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p
   The output of the gem install command will be printed to the calling
   environments streams.
-%h2 Environmental effects
+%h4 Environmental effects
 %p Ruby gem(s) will be installed on the system, potentially enabling new commands.
-%h2 Return Codes
+%h4 Return Codes
 %p
   0 if gem install was successful
   1 if gem install was not successful
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p Fails if ...
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
       user$ {{ setup the scenario }}
       user$ function_name {{ parameters }}
       user$ {{ demonstrate the results}}
-%h1 install_gems
+%h2 install_gems
 %p Installs listed gems using the install_gem function.
-%h2 Input Parameters
+%h4 Input Parameters
 %p One or more rubygems names
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p
   Output from underlying gem install will be printed to the calling environments
   streams.
-%h2 Environmental effects
+%h4 Environmental effects
 %p One or more new commands may become available.
-%h2 Return Codes
+%h4 Return Codes
 %p
   0 if all gem installs were successful
   n where n is the number of unsuccessful gem installs otherwise.
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p Fails if no gems were given to install.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve

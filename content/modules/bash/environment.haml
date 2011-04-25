@@ -1,18 +1,18 @@
-%h1 command_exists
+%h2 command_exists
 %p Checks to see whether a command exists within the current environment and PATH
-%h2 Input Parameters
+%h4 Input Parameters
 %p First parameter is a command name.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Environmental effects
+%h4 Environmental effects
 %p none.
-%h2 return codes
+%h4 return codes
 %p
   0 if the command was found in the current environment
   1 if the command was not found in the current environment
-%h2 failure scenarios
+%h4 failure scenarios
 %p Fails if no command name was given.
-%h2 usage examples
+%h4 usage examples
 %pre
   %code
     :preserve
@@ -23,21 +23,21 @@
       user$ command_exists ls
       user$ echo $?
       0
-%h1 is_a_function
+%h2 is_a_function
 %p Checks to see whether a named function exists within the current environment
-%h2 Input Parameters
+%h4 Input Parameters
 %p First parameter is a command name.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Environmental effects
+%h4 Environmental effects
 %p none.
-%h2 return codes
+%h4 return codes
 %p
   0 if the function exists
   1 if the function does not exist
-%h2 failure scenarios
+%h4 failure scenarios
 %p Fails if no function name was given.
-%h2 usage examples
+%h4 usage examples
 %pre
   %code
     :preserve

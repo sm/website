@@ -1,25 +1,25 @@
-%h1 template_exists
+%h2 template_exists
 %p Checks if a named template file exists in the extension_templates_path
-%h2 Input Parameters
+%h4 Input Parameters
 %p First parameter must be the name of a template file, eg. a string.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p
   0 if the named template file exists and is nonempty.
   1 if the named template file does not exist or is empty.
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p Fails if no template name is given.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
       user$ {{ setup the scenario }}
       user$ function_name {{ parameters }}
       user$ {{ demonstrate the results}}
-%h1 install_template
+%h2 install_template
 %p Installs a named template to a given location.
-%h2 Input Parameters
+%h4 Input Parameters
 %p
   The first parameter should be the template name.
   Remaining parameters specify the target, mode and owner:
@@ -30,43 +30,43 @@
       \&gt;]&quot;
       mode 0755
       to &quot;/path/to/new/file&quot;
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p
   0 if successful
   1 otherwise
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p
   Fails if no template name was given.
   Fails if the template name given is a directory.
-%h2 Usage Examples
+%h4 Usage Examples
 %pre
   %code
     :preserve
       user$ install_template &quot;nginx.conf&quot; \
             to &quot;${nginx_path}/nginx.conf&quot; \
             mode 0644 owner &quot;${nginx_user}&quot;
-%h1 seed_template
+%h2 seed_template
 %p Seed a template file replacing all given keys with given values.
-%h2 Input Parameters
+%h4 Input Parameters
 %p
   First parameter must be the template filename to seed.
   Remaining parameters must come in pairs, the first of each pair specifies
   the key to search and replace in the template file and the second is the
   value to replace {{$key}} with.
-%h2 Stream Outputs
+%h4 Stream Outputs
 %p None.
-%h2 Return Codes
+%h4 Return Codes
 %p 0 for success
-%h2 Failure Scenarios
+%h4 Failure Scenarios
 %p
   Fails if no template filename is given.
   Fails if the template given does not exist.
   Fails if no key/value pairs are given.
   Fails if for every key there is no associated value.
   Fails if the intermediate template file does not exist...
-%h2 Usage Examples
+%h4 Usage Examples
 %p
   user$ seed_template &quot;/etc/conf.d/${extension}.conf&quot;
   prefix_path &quot;${prefix_path}&quot;
