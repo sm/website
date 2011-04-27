@@ -9,15 +9,51 @@
     Bash
   &nbsp;>&nbsp;
   %a{ :href => "/modules/bash/project/" }
-    Project
+    project
   %hr
 
 %h1
-  Bash Project Module
+  Module project
 
+%h2 project_initialize()
+%p Initializes paths and environment for the logical concept of a 'project'.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
 %p
-  A listing of the available DSL functions (for now).
-%ul
-  %li project_initialize()
-  %li vcs()
-
+  Environmental variable settings, such as {shared,release}_path, environment,
+  etc...
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ project_initialize
+      user$ echo $environment
+      production
+%h2 vcs()
+%p Detect and set the vcs, if any, for the current project.
+%h4 Input Parameters
+%p First parameter must be the path to a repository for determining the VCS.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p
+  The environment variable 'vcs' will be set to the VCS detected, or 'git' by
+  default.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no repository path is given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ vcs /home/appuser/shared/appuser
+      user$ echo $vcs
+      git
