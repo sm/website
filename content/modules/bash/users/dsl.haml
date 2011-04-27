@@ -1,0 +1,178 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/bash/" }
+    Bash
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/bash/users/" }
+    users
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/bash/users/dsl/" }
+    DSL API :: users
+  %hr
+
+%h1
+  Module users
+
+%h2 user_create_if_missing()
+%p Create a system user if it does not exist on the system.
+%h4 Input Parameters
+%p
+  The first parameter should be the user name, then optionally
+  [with] group {{groupname}}
+%h4 Stream Outputs
+%p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
+%h4 Environmental effects
+%p What, if any, environmental side effects this function causes. 'None.' for none.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no username is given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ user_create_if_missing &quot;nginx&quot; with group &quot;nginx&quot;
+%h2 user_delete()
+%p Deletes the named system user.
+%h4 Input Parameters
+%p The first parameter is the system user to delete.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p The given user will no longer exist on the system.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if the user name was not specified.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ user_delete &quot;nginx&quot;
+%h2 user_is_root()
+%p Tests if the user the current process is running as is root.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if user is root (UID 0).
+  1 if user is not root (UID 0).
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ user_is_root
+      user$ echo $?
+      1
+      
+      root# user_is_root
+      root# echo $?
+      0
+%h2 user_is_not_root()
+%p Tests if the user the current process is running as is not root.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if user is not root (eg UID is nonzero)
+  1 if user is root (UID 0)
+%h4 Failure Scenarios
+%p No failure scenarios currently
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ user_is_not_root
+      user$ echo $?
+      0
+      
+      root# user_is_not_root
+      root# echo $?
+      1
+%h2 user_must_be_root()
+%p Halts the calling program with a failure message if the user is not root.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p A failure message is output to STDERR if the failure condition is met.
+%h4 Environmental effects
+%p What, if any, environmental side effects this function causes. 'None.' for none.
+%h4 Return Codes
+%p 0 if the user is root
+%h4 Failure Scenarios
+%p Fails if the program user running is not root.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ user_must_be_root
+      ERROR: bdsm test test must be run as root and NOT as a user(user)
+%h2 user_must_not_be_root()
+%p Halts the calling program with a failure message if the user is not root.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p A failure message is output to STDERR if the failure condition is met.
+%h4 Environmental effects
+%p What, if any, environmental side effects this function causes. 'None.' for none.
+%h4 Return Codes
+%p 0 if the user is root
+%h4 Failure Scenarios
+%p Fails if the program user running is root.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ user_must_not_be_root
+      ERROR: bdsm test test must be run as a (project) user and NOT as a root.
+%h2 user_run_as()
+%p Runs a command as a given user.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p Any stream outputs of the command being run.
+%h4 Environmental effects
+%p Any environmental effects of the command being run.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no user was specified.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      root# user_run_as &quot;user&quot; pwd
+      /home/user
+%h2 user_run_as_login()
+%p Runs a command as a given user, in that users login shell.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p Any stream outputs of the command being run.
+%h4 Environmental effects
+%p Any environmental effects of the command being run.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no user was specified.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      root# user_run_as_login &quot;deploy&quot; bdsm unicorn restart
+      &lt;&lt; unicorn restart output &gt;&gt;

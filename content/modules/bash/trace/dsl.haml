@@ -1,0 +1,265 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/bash/" }
+    Bash
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/bash/trace/" }
+    trace
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/bash/trace/dsl/" }
+    DSL API :: trace
+  %hr
+
+%h1
+  Module trace
+
+%h2 set_ps4()
+%p Set the environmental PS4 variable for informative tracing.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ echo &quot;'$PS4'&quot;
+      '+ '
+      user$ set_ps4
+      user$ echo &quot;'$PS4'&quot;
+      ' &gt; ${BASH_SOURCE##${bdsm_path}\/} ${FUNCNAME[0]:+${FUNCNAME[0]}()} ${LINENO} $ '
+%h2 trace()
+%p
+  Toggle tracing functionality on or off. If 'on' is triggered then every line
+  of code execution after the function returns will be displayed in the format
+  specified by the PS4 environment variable (see set_ps4).
+%h4 Input Parameters
+%p First parameter is either empty, 'on' or 'off'
+%h4 Stream Outputs
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ trace on
+      user$ echo &quot;hi&quot;
+      &gt;   1 $ echo hi
+      user$ trace off
+      &gt;  trace() 1 $ local _option=off
+      &gt;  trace() 3 $ [[ off = \o\n ]]
+      &gt;  trace() 8 $ set +o xtrace
+%h2 enable_trace()
+%p Turns tracing on.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ enable_trace
+%h2 disable_trace()
+%p Turns tracing off.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No current failure scenarios.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ disable_trace
+%h2 debug()
+%p
+  Toggle verbose debugging functionality on or off. If 'on' is triggered then
+  every line of code execution after the function returns will be displayed.
+%h4 Input Parameters
+%p First parameter is either empty, 'on' or 'off'
+%h4 Stream Outputs
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ debug on
+      user$ echo &quot;hi&quot;
+      &gt;   1 $ echo hi
+      user$ debug off
+      &gt;  debug() 1 $ local _option=off
+      &gt;  debug() 3 $ [[ off = \o\n ]]
+      &gt;  debug() 8 $ set +o xdebug
+%h2 enable_debug()
+%p Enables verbose debugging output.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ enable_debug
+%h2 disable_debug()
+%p Disables verbose debugging output.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ disable_debug
+%h2 enable_backtrace()
+%p
+  Enables backtrace and program exit whenever a command returns a nonzero value
+  that is not handled.
+%h4 Input Parameters
+%p
+  First parameter is optional. If it is passed it is a message that will be
+  outputed when a command trigger the program to error exit.
+%h4 Stream Outputs
+%p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure conditions currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ cat ./test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules trace # Load the trace module.
+      enable_backtrace
+      echo &quot;Error exit with backtrace is now off.&quot;
+      false # Does not cause exiting with backtrace printing.
+      
+      user$ $PWD/test
+      Error exit with backtrace is on.
+      ERROR: A command has returned an unhandled error code (nonzero return value).
+      Error Backtrace:
+         Trace   Line Function             File
+            1.      7 main()               /Users/wayneeseguin/test
+%h2 function_name()
+%p Function Description
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure conditions currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ cat ./test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules trace # Load the trace module.
+      disable_backtrace
+      echo &quot;Error exit with backtrace is now off.&quot;
+      false # Does not cause exiting with backtrace printing.
+      
+      user$ ./test
+      Error exit with backtrace is now off.
+%h2 backtrace()
+%p
+  Display a backtrace of the current call stack to the point that backtrace was
+  called from. Currently trace is turned on as well so that execution after
+  calling backtrace is traced.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p
+  The call stack up to the current point of execution is printed to STDOUT of
+  the calling environment.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ cat ./test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules trace # Load the trace module.
+      
+      functiona()
+      {
+        echo &quot;function a&quot;
+        functionb
+        echo &quot;function a&quot;
+      }
+      
+      functionb()
+      {
+        echo &quot;function b&quot;
+        functionc
+        echo &quot;function b&quot;
+      }
+      
+      functionc()
+      {
+        echo &quot;function c&quot;
+        backtrace
+        echo &quot;function c&quot;
+      }
+      
+      functiona
+      
+      user$ $PWD/test
+      function a
+      function b
+      function c
+      Error Backtrace:
+         Trace   Line Function             File
+            4.     25 functionc()          /Users/wayneeseguin/test
+            3.     18 functionb()          /Users/wayneeseguin/test
+            2.     11 functiona()          /Users/wayneeseguin/test
+            1.     29 main()               /Users/wayneeseguin/test
+       &gt; /Users/wayneeseguin/test functionc() 26 $ echo 'function c'
+      function c
+       &gt; /Users/wayneeseguin/test functionb() 19 $ echo 'function b'
+      function b
+       &gt; /Users/wayneeseguin/test functiona() 12 $ echo 'function a'
+      function a

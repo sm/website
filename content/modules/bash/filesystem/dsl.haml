@@ -1,0 +1,38 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/bash/" }
+    Bash
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/bash/filesystem/" }
+    filesystem
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/bash/filesystem/dsl/" }
+    DSL API :: filesystem
+  %hr
+
+%h1
+  Module filesystem
+
+%p
+  Safely source files and notify the user if they do not exist.
+  Recommended to put in /etc/bash.bashrc or ~/.bashrc and be sure
+  it is sourced from ~/.bash_profile
+  safely source the first file found
+  TODO: change this to be a  fail function if one is not
+  make this into make_files_executable or some such
+%p Link files
+%p The following usages are equivalent
+%p
+  link from /home/user/.vim/vimrc to /home/user/.vimrc
+  link /home/user/.vim/vimrc to /home/user/.vimrc
+  link /home/user/.vim/vimrc /home/user/.vimrc
+%p Directory conditional dsl
+%p Replace contents in a file with a given (sed) regex pattern.
+%p
+  Example:
+  replace_content &quot;^PREFIX =.*&quot; with &quot;${install_path}&quot; in Makefile
