@@ -18,9 +18,32 @@
 %h1
   Module package
 
+%h1 package_definition
+%p Enables module developers to easily set package variables in name, value pairs.
+%h4 Input Parameters
+%p
+  Parameters must come in pairs, variable name first (without the 'package'
+  prefix), value second.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p
+  For each name/value pair, a variable package_${name} is created with the given
+  value.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if extension developer accidentailly separates key/value with an = :)
+  Fails if a key is given without a matching value.
+%h4 Usage Examples
 %p Example Usage:
 %p
-  package_definition
+  user$ package_definition
   name &quot;bash&quot;
   version &quot;4.2&quot;
   url &quot;ftp.gnu.org/gnu/bash/&quot;
+%h4 Notes
+%p
+  For readability it is recommended to split the line into &quot;key value&quot; lines by
+  ending the line with a singele backslash '' character with no space afterwards.
