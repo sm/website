@@ -8,12 +8,49 @@
 
 %h2
   %a{:href => "/development/"} Development
+
+%p
+  Before developing on core, extensions or site be sure to setup the BDSM development environment first. After
+  %a{:href => "/bdsm/install"}
+    installing BDSM
+  on your system, as your development user you can setup the BDSM development environment by issuing the following command.
+%pre.code
+  :preserve
+    bdsm core dev setup
+%p
+  This command sets up:
+  %ul
+    %li
+      \~/.bdsmrc file contents
+    %li
+      BDSM project module interactive component, the commands
+      %ul
+        %li p - Change directories to given project / subproject.
+        %li pe - Change directories to given project / subprojevct and open it in the $EDITOR (vim if no has been EDITOR set).
+        %li po - Change directories to given project / subproject and open it in the filesystem viewer.
+    %li
+      Core, extensions and site repositories into the projects path ($HOME/projects/bdsm/ by default).
+
+  Once the command has completed, you may open a new shell and start using the project functions. For example, to switch directories to the core and start editing it type the following.
+  %pre.code
+    :preserve
+      user ~/ $ pe bdsm core
+      user ~/projects/bdsm/ $   # Editor also launched here
+
+  The p, pe and po commands operate on a prefix basis, the shortest match wins.
+  %pre.code
+    :preserve
+      user ~/ $ pe bd c
+      user ~/projects/bdsm/core $  # Editor also launched here
+
 %p
   %ul
     %li
       %a{:href => "/development/core"} Core Development
     %li
       %a{:href => "/development/extensions"} Extension Development
+    %li
+      %a{:href => "/development/site"} Site Development
     %li
       %a{:href => "/development/list"} Mailing List
     %li
