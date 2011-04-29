@@ -29,9 +29,9 @@ pages concisely.
 * [nanoc3](http://nanoc.stoneship.org/) - Used for generating the static
 website.
 * [rack](http://guides.rubyonrails.org/rails_on_rack.html) - Used for
-developing the website and viewing locally with autocompile feature.
+developing the website and viewing locally with nanoc autocompile feature.
 * [mime-type](http://rubyforge.org/projects/mime-types/) - Used for
-development with autocompile feature.
+development with nanoc autocompile feature.
 
 The cloned site will detect if you have these installed (except Mime-type) in
 your current ruby and if not it will install them in RVM for you.

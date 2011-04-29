@@ -45,24 +45,29 @@ The site requires that you have ruby 1.9.2 running in your environment.
 %ul
   %li
     %a{:href => "http://compass-style.org/"}
-      Compass
+      compass
+    \- Helps with managing haml/sass
   %li
     %a{:href => "http://haml-lang.com/"}
-      HAML
+      haml
+    \- The markup language used for authoring
   %li
     %a{:href => "http://sass-lang.com/"}
-      SASS
+      sass
+    \- Used for generating css. (bundled with the haml Gem)
     (bundled with the haml Gem)
   %li
     %a{:href => "http://nanoc.stoneship.org/"}
       Nanoc3
+    \- Used for generating the static
   %li
     %a{:href => "http://guides.rubyonrails.org/rails_on_rack.html"}
       Rack
+    \- Used for developing the website and viewing locally with nanoc autocompile feature.
   %li
     %a{:href => "http://rubyforge.org/projects/mime-types/"}
       Mime-type
-
+    \- Used for development with nanoc autocompile feature.
 %p
   The cloned site will detect if you have these installed (except Mime-type) in your current ruby and if not it will install them in RVM for you.
 
