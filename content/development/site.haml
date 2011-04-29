@@ -85,6 +85,11 @@ The site requires that you have ruby 1.9.2 running in your environment.
 %pre.code
   :preserve
     open http://localhost:3000/
+%p
+  On some linux systems you can do the following,
+%pre.code
+  :preserve
+    xdg-open http://localhost:3000/
 
 %h2 Submitting Website/Documentation Updates
 
@@ -99,18 +104,32 @@ The site requires that you have ruby 1.9.2 running in your environment.
   Next add your github as a remote and checkout a topic branch.
 %pre.code
   :preserve
+    user$ githubuser={{your github user name}}
     user$ p bdsm site # cd into the bdsm website
-    user$ git remote add github git@github.com:{{your github username}}/bdsm-site.git
+    user$ git remote add github git@github.com:$githubuser/bdsm-site.git
     user$ branch=update_for_{{name the branch something useful, no spaces}}
     user$ git checkout -b $branch
     user$ git add {{the files you added or changed}}
 
-    # Now say what you did, be clear and consise
+%p
+  Now say what you did, be clear and consise
+
+%pre.code
+  :preserve
     user$ git commit -m "Updated the documentation with ..."
     user$ git push github $branch
 %p
   Now browse to your github account's bdsm-site repository and issue a
-  pull request to the main bdsm-site repository.
+  pull request to the main bdsm-site repository. On OSX you can do this
+  from the command line,
+%pre.code
+  :preserve
+    user$ open https://github.com/$githubuser/bdsm-site/tree/$branch
+%p
+  On some linux systems you can do this,
+%pre.code
+  :preserve
+    user$ xdg-open https://github.com/$githubuser/bdsm-site/tree/$branch
 %p
   It is advised to leave a message for me (wayneeseguin) in #beginrescueend on
   irc.freenode.net regarding the pull request and/or discuss your updates with
