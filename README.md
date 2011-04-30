@@ -1,6 +1,6 @@
 # Developing BDSM WebSite
 
-## Bash Delectable Scripting Management (BDSM) Framework Documentation WebSite
+## Bash Delectable Scripting Modules (BDSM) Framework Documentation WebSite
 
 You can see the documentation live online at http://bdsm.beginrescueend.com/.
 Get the Site Running Locally
