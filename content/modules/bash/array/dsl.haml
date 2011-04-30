@@ -153,9 +153,20 @@
 %pre
   %code
     :preserve
-      $ the_array=(1 2 3 4 5)
-      $ array_length the_array
-      5
+      user$ cat $HOME/test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules array
+      
+      my_array=(1 2 3 4)
+      echo ${my_array[@]}
+      array_shift my_array
+      echo ${my_array[@]}
+      
+      user$ $HOME/test
+      1 2 3 4
+      1
+      2 3 4
 %h2 array_unshift()
 %p
   Prepends one or more elements to the array whose name is given, in the order
@@ -195,6 +206,28 @@
   Prints the elements of the named array, separted by either the 2nd parameter
   if given or else a space character, to the STDOUT stream of the calling
   environment.
+%h4 Return Codes
+%p 0 denoting success
+%h4 Failure Scenarios
+%p Fails if the array name, the first parameter, is not given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      $ the_array=(1 2 3 4 5)
+      $ array_join the_array
+      1 2 3 4 5
+      
+      $ array_join the_array '.'
+      1.2.3.4.5
+%h2 array_largest()
+%p Outputs the largest element of the array, in the sense of longest string.
+%h4 Input Parameters
+%p The first element is an array variable name.
+%h4 Stream Outputs
+%p
+  Prints the largest elements of the named array to the STDOUT
+  stream of the calling environment.
 %h4 Return Codes
 %p 0 denoting success
 %h4 Failure Scenarios

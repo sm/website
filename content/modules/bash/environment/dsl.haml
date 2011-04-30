@@ -72,3 +72,36 @@
       user$ is_a_function ls
       user$ echo $?
       1
+%h2 shell_is_interactive()
+%p Checks if the currently running shell is interactive (user controlled).
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p none.
+%h4 return codes
+%p
+  0 if the shell is interactive (user controlled)
+  1 if the shell is not interactive
+%h4 failure scenarios
+%p None currently.
+%h4 usage examples
+%p
+  user$ cat $HOME/test
+  \!/usr/bin/env bash
+  source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+  modules environment # Load the trace module.
+%p
+  if shell_is_interactive
+  then
+  echo &quot;Shell is Interactive! &quot;
+  else
+  echo &quot;Shell is Not Interactive! &quot;
+  fi
+%p
+  user$ &quot;$HOME/test&quot;
+  Shell is Not Interactive!
+%p
+  user$ source &quot;$HOME/test&quot;
+  Shell is Interactive!

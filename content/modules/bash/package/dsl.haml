@@ -47,3 +47,362 @@
 %p
   For readability it is recommended to split the line into &quot;key value&quot; lines by
   ending the line with a singele backslash '' character with no space afterwards.
+%h1 package_install
+%p
+  Performs all package installation steps:
+  * download
+  * extract
+  * patch
+  * confiure
+  * build
+  * install
+  * postinstall
+  * activation
+  * service setup, if service module is loaded
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p Steps performed are logged to STDOUT of the calling environment.
+%h4 Environmental effects
+%p Package installation artifacts are created in the system and source directories.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Fails if any of the constituant components fail.
+%h4 Usage Examples
+%p Example Usage:
+%p
+  user$ package_definition
+  name &quot;bash&quot;
+  version &quot;4.2&quot;
+  url &quot;ftp.gnu.org/gnu/bash/&quot;
+%p user$ package_install
+%h4 Notes
+%h1 package_fetch_md5
+%p Fetches the package's md5 sum from the md5_url, if given.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p The 'package_md5' variable is set with the downloaded md5 sum.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Fails if any of the constituant components fail.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_fetch_md5
+%h4 Notes
+%h1 package_fetch
+%p Fetches the package's archive file.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p curl output goes to STDERR of the calling environment.
+%h4 Environmental effects
+%p The package archive file will be placed on the filesystem.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_fetch
+%h4 Notes
+%h1 package_extract
+%p Extracts the package archive into the package source directory.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p The 'package_md5' variable is set with the downloaded md5 sum.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Errors halting program if any extraction fails or if the archive format is
+  unknown.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_extract
+%h4 Notes
+%h1 package_configure
+%p Configures the package source (eg. ./configure ...).
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Makefile will be generated for a standard package extension.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if configuration fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_configure
+%h4 Notes
+%h1 package_build
+%p builds the package source (eg. make)
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Makefile will be generated for a standard package extension.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if building fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_build
+%h4 Notes
+%h1 package_make_install
+%p make install  the package source (eg. make)
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Installation files will be installed to the install_path.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if make install fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_make_install
+%h4 Notes
+%h1 package_activate
+%p activates the package
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Symlink will be created to the active version in the package install path.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if activateing fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_activate
+%h4 Notes
+%h1 package_setup
+%p Sets up the package
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p
+  ldconfig, profile.d and service (init.d / conf.d) files will be put in place
+  on the system.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if setup fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_setup
+%h4 Notes
+%h1 package_deactivate
+%p deactivates the package
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Active symlinks will be removed from the filesystem.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if deactivating fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_deactivate
+%h4 Notes
+%h1 package_activate_if_first
+%p
+  Activates the package version , if another package version has not yet been
+  activated.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p
+  Active symlinks will be added to the filesystem if it is the first version
+  installed.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if deactivating fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_activate_if_first
+%h4 Notes
+%h1 package_ldconfig
+%p Sets up system level ldconfigs for the package libraries.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Adjusts ldconfig configuration and runs ldconfig (on linux).
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if deactivating fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_ldconfig
+%h4 Notes
+%h1 package_profile_d
+%p Sets up system level profile_d configuration for the package
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Updates profile_d configuration for the given package
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if profile_d setup fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_profile_d
+%h4 Notes
+%h1 package_uninstall
+%p Uninstalls the package
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Uninstalls the package install effects from the system.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if uninstall fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_uninstall
+%h4 Notes
+%h1 package_patch
+%p Applies any patches found for the current package.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Updates the source code directory for the package with any patches found.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if patching fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_patch
+%h4 Notes
+%h1 package_apply_patches
+%p Applies patches found
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Applies any patches found for the current package.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if apply_patches fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_apply_patches
+%h4 Notes
+%h1 package_usage
+%p Sets up system level usage configuration for the package
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Updates usage configuration for the given package
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if usage setup fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_usage
+%h4 Notes
+%h1 package_cli
+%p Parses package CLI arguments
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Updates cli configuration for the given package
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if cli setup fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_cli
+%h4 Notes
+%h1 package_active
+%p Parses package active arguments
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Updates active configuration for the given package
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if active setup fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_active
+%h4 Notes
+%h1 package_must be
+%p Parses package must be arguments
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Updates must be configuration for the given package
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if must be setup fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ package_must be
+%h4 Notes
+%h1 packages_must_be_active
+%p Parses package must_be_active arguments
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p Updates must_be_active configuration for the given package
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Errors halting program if must_be_active setup fails for any reason.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ packages_must_be_active
+%h4 Notes

@@ -35,6 +35,25 @@
   %code
     :preserve
       user$ bdsm_exports
+%h2 bdsm_version()
+%p Reads the currently installed bdsm version into the variable 'bdsm_version'.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p The variable 'bdsm_version' will be set after the function is executed.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ bdsm_version
+      user$ echo $bdsm_version
+      69.69.69
 %h2 NIY()
 %p
   Prints a failure message and backtrace to the screen letting the caller know
