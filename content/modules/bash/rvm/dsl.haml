@@ -18,3 +18,66 @@
 %h1
   Module rvm
 
+%h2 rvm_install()
+%p Install the latest release version of RVM.
+%h4 Input Parameters
+%p First parameter is an optional version number of RVM to install.
+%h4 Stream Outputs
+%p
+  Output from rvm-installer will be printed to the enclosing environment's
+  STDOUT as well as curl output.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure conditions currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ rvm_install
+%h2 install_gem()
+%p installs the named gem(s) with --no-rdoc --no-ri flags
+%h4 Input Parameters
+%p One or more gem names
+%h4 Stream Outputs
+%p
+  The output of the gem install command will be printed to the calling
+  environments streams.
+%h4 Environmental effects
+%p Ruby gem(s) will be installed on the system, potentially enabling new commands.
+%h4 Return Codes
+%p
+  0 if gem install was successful
+  1 if gem install was not successful
+%h4 Failure Scenarios
+%p Fails if ...
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ {{ setup the scenario }}
+      user$ function_name {{ parameters }}
+      user$ {{ demonstrate the results}}
+%h2 install_gems()
+%p Installs listed gems using the install_gem function.
+%h4 Input Parameters
+%p One or more rubygems names
+%h4 Stream Outputs
+%p
+  Output from underlying gem install will be printed to the calling environments
+  streams.
+%h4 Environmental effects
+%p One or more new commands may become available.
+%h4 Return Codes
+%p
+  0 if all gem installs were successful
+  n where n is the number of unsuccessful gem installs otherwise.
+%h4 Failure Scenarios
+%p Fails if no gems were given to install.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ install_gems rake rack

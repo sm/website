@@ -18,3 +18,150 @@
 %h1
   Module logging
 
+%h2 log()
+%p Log arguments to the calling environments STDOUT.
+%h4 Input Parameters
+%p Strings to be logged.
+%h4 Stream Outputs
+%p
+  Prints arguments passed in to the calling environments STDOUT with a newline
+  character appended.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no arguments are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ log &quot;Hello there! &quot;
+      Hello there!
+%h2 info()
+%p Log arguments to the calling environments STDOUT preceeded by 'INFO .
+%h4 Input Parameters
+%p Strings to be logged.
+%h4 Stream Outputs
+%p
+  Prints arguments passed in to the calling environments STDOUT with a newline
+  character appended and 'INFO ' prepended.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no arguments are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ info &quot;Hello there! &quot;
+      INFO Hello there!
+%h2 warn()
+%p Log arguments to the calling environments STDOUT preceeded by 'WARNING .
+%h4 Input Parameters
+%p Strings to be logged.
+%h4 Stream Outputs
+%p
+  Prints arguments passed in to the calling environments STDOUT with a newline
+  character appended and 'WARNING ' prepended.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no arguments are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ info &quot;Hello there! &quot;
+      INFO Hello there!
+%h2 debug()
+%p Log arguments to the calling environments STDOUT preceeded by 'DEBUG: .
+%h4 Input Parameters
+%p Strings to be logged.
+%h4 Stream Outputs
+%p
+  Prints arguments passed in to the calling environments STDOUT with a newline
+  character appended and 'DEBUG: ' prepended.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no arguments are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ debug &quot;Hello there! &quot;
+      DEBUG: Hello there!
+%h2 error()
+%p
+  Log arguments to the calling environments STDERR preceeded by 'ERROR '.
+  Exits with status code 1.
+%h4 Input Parameters
+%p Strings to be logged.
+%h4 Stream Outputs
+%p
+  Prints arguments passed in to the calling environments STDOUT with a newline
+  character appended and 'ERROR ' prepended.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 1 for failure.
+%h4 Failure Scenarios
+%p Fails if no arguments are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ error &quot;Hello there! &quot;
+      ERROR Hello there!
+      *poof* shell closed...
+%h2 succeed()
+%p Log arguments to the calling environments STDOUT. Exits with status code 0.
+%h4 Input Parameters
+%p Strings to be logged.
+%h4 Stream Outputs
+%p
+  Prints arguments passed in to the calling environments STDOUT with a newline
+  character appended.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no arguments are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ succeed &quot;Hello there! &quot;
+      Hello there!
+      *poof* shell closed...
+%h2 fail()
+%p
+  Log arguments to the calling environments STDERR preceeded by 'ERROR '.
+  Exits with status code 1.
+%h4 Input Parameters
+%p Strings to be logged.
+%h4 Stream Outputs
+%p
+  Prints arguments passed in to the calling environments STDOUT with a newline
+  character appended and 'ERROR ' prepended.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 1 for failure.
+%h4 Failure Scenarios
+%p Fails if no arguments are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ error &quot;Hello there! &quot;
+      ERROR Hello there!
+      *poof* shell closed...
