@@ -10,16 +10,16 @@
   %hr
 
 %h1
-  Developing BDSM WebSite
+  Contributing to the BDSM Website
 
-%h2 Bash Delectable Scripting Modules (BDSM) Framework Documentation WebSite
+%h2 First, Get the source
 
-You can see the documentation live online at http://bdsm.beginrescueend.com/.
-
-%h2 Get the Site Running Locally
-
-If you're going to help you'll first need to get the site running locally.
-Start by forking the repository and cloning the fork.
+To contribute, you'll first need to get the site running locally.
+%p
+  First, 
+  %a{:href => "https://github.com/wayneeseguin/bdsm-site#fork_box"}
+    fork the repository on github
+  into your account. Then, clone the fork on your local machine.
 
 %h2 Requirements
 
@@ -70,13 +70,14 @@ The site requires that you have ruby 1.9.2 running in your environment.
     \- Used for development with nanoc autocompile feature.
 %p
   The cloned site will detect if you have these installed (except Mime-type) in your current ruby and if not it will install them in RVM for you.
+%p
 
-%h2 Getting the site Running
+%h2 Get the Site Running
 
 %p
   First be sure that you have ruby 1.9.2 selected and are in the cloned repository directory.
 %p
-  Note that if you cd to the directory and are using RVM, the project .rvmrc will be loaded and you can open the content/ in your editor and start hacking away on the website.
+  Note that if you cd to the directory and are using RVM, the project .rvmrc will be loaded and you can open the "content/" folder in your editor and start hacking away on the website.
 
 %p
   If you would like to view the changes locally as you hack, You can use Nanoc's AutoCompile feature:
@@ -99,14 +100,14 @@ The site requires that you have ruby 1.9.2 running in your environment.
 %h2 Submitting Website/Documentation Updates
 
 %p
-  Once you are satisfied with your changes to the documentation push them to your github fork *on a branch* and initiate a pull request. Please use a topic branch. Sample submission workflow is below.
+  Once you are satisfied with your changes to the documentation, push them to your github fork *on a branch* and initiate a pull request. Please use a topic branch. Sample submission workflow is below.
 %p
-  First
-  %a{:href => "https://github.com/wayneeseguin/bdsm-extensions#fork_box"}
-    fork the repository on github
+  Make sure you've 
+  %a{:href => "https://github.com/wayneeseguin/bdsm-site#fork_box"}
+    forked the repository on github 
   into your account.
 %p
-  Next add your github as a remote and checkout a topic branch.
+  Next add your own github repository as a remote and check out a topic branch.
 %pre.code
   :preserve
     user$ githubuser={{your github user name}}
@@ -117,7 +118,7 @@ The site requires that you have ruby 1.9.2 running in your environment.
     user$ git add {{the files you added or changed}}
 
 %p
-  Now say what you did, be clear and consise
+  Say what you did in the commit message; be clear and concise.
 
 %pre.code
   :preserve
