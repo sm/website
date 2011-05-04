@@ -34,9 +34,9 @@
     modules filesystem # We're going to use the system module.
     if file_is_nonempty "$HOME/.bashrc" # Provided by the filesystem module
     then
-      echo "$HOME/.bashrc is nonempty! "
+      log "$HOME/.bashrc is nonempty! " # log() is provided by logging module
     else
-      echo "$HOME/.bashrc is empty! "
+      log "$HOME/.bashrc is empty! "
     fi
 %p
   As can be seen here, the BDSM framework may be used in any script.
