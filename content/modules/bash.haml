@@ -43,15 +43,34 @@
   The above example I created as contents to the file '$HOME/test' which I then
   called from the command line.
 
+%p
+  One useful feature to keep in mind is the enable_backtrace() from the trace
+  module. If we put the following two lines at the end of the '$HOME/test' script
+  above,
+%pre.code
+  :preserve
+    enable_backtrace
+    asdfk
+
+%p
+  Then we get the following useful error trace output,
 %pre.code
   :preserve
     user$ "$HOME/test"
     /Users/wayneeseguin/.bashrc is nonempty!
+    bash: asdfasdf: command not found (asdfasdf)
 
-Module DSL function listings can be found in the following pages.
+    A command has returned an unhandled error code (nonzero return value).
+
+    function()                 Source
+    ===============================================================================================
+    main()                     mvim://open?url=file:///Users/wayneeseguin/test&line=13
+    ===============================================================================================
 
 %h2
   Documentation
+%p
+  Individual module DSL function listings can be found in the following pages.
 %ul
   %li
     %a{:href => "/modules/bash/array/"} Bash Array Module
