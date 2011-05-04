@@ -12,6 +12,44 @@
 %h1
   Bash Modules
 
+%p
+  The bash modules are a collection of namespaced functions that allow for
+  simplification and encapsulation of common scripting functionality.
+
+%h2
+  Getting started
+%p
+  Each of the modules below may be tested by creating a simple script beginning
+  with the following two lines of code.
+%pre.code
+  :preserve
+    #!/usr/bin/env bash
+    source "/usr/local/bdsm/modules/bash/core/initialize" # Load BDSM framework
+%p
+  A simple example of this is to use the filesystem module.
+%pre.code
+  :preserve
+    #!/usr/bin/env bash
+    source "/usr/local/bdsm/modules/bash/core/initialize" # Load BDSM framework
+    modules filesystem # We're going to use the system module.
+    if file_is_nonempty "$HOME/.bashrc" # Provided by the filesystem module
+    then
+      echo "$HOME/.bashrc is nonempty! "
+    else
+      echo "$HOME/.bashrc is empty! "
+    fi
+%p
+  As can be seen here, the BDSM framework may be used in any script.
+  The above example I created as contents to the file '$HOME/test' which I then
+  called from the command line.
+
+%pre.code
+  :preserve
+    user$ "$HOME/test"
+    /Users/wayneeseguin/.bashrc is nonempty!
+
+Module DSL function listings can be found in the following pages.
+
 %h2
   Documentation
 %ul
