@@ -169,14 +169,16 @@
       enable_backtrace
       echo &quot;Error exit with backtrace is now off.&quot;
       false # Does not cause exiting with backtrace printing.
-      
+
       user$ $PWD/test
       Error exit with backtrace is on.
       ERROR: A command has returned an unhandled error code (nonzero return value).
       Error Backtrace:
          Trace   Function           Line  File
             1.   main()                7  /Users/wayneeseguin/test
-%h2 disable_backtrace()
+%h2
+  disable_backtrace()
+%p
   Disables backtrace after enable_backtrace() is used.
 %p Function Description
 %h4 Input Parameters
@@ -198,7 +200,7 @@
       disable_backtrace
       echo &quot;Error exit with backtrace is now off.&quot;
       false # Does not cause exiting with backtrace printing.
-      
+
       user$ ./test
       Error exit with backtrace is now off.
 %h2 backtrace()
@@ -224,30 +226,30 @@
       #!/usr/bin/env bash
       source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
       modules trace # Load the trace module.
-      
+
       functiona()
       {
         echo &quot;function a&quot;
         functionb
         echo &quot;function a&quot;
       }
-      
+
       functionb()
       {
         echo &quot;function b&quot;
         functionc
         echo &quot;function b&quot;
       }
-      
+
       functionc()
       {
         echo &quot;function c&quot;
         backtrace
         echo &quot;function c&quot;
       }
-      
+
       functiona
-      
+
       user$ $PWD/test
       function a
       function b
