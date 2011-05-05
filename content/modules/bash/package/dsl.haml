@@ -18,7 +18,7 @@
 %h1
   Module package
 
-%h1 package_definition
+%h2 package_definition
 %p Enables module developers to easily set package variables in name, value pairs.
 %h4 Input Parameters
 %p
@@ -49,7 +49,7 @@
 %p
   For readability it is recommended to split the line into &quot;key value&quot; lines by
   ending the line with a single backslash '\' character with no space afterwards.
-%h1 package_install
+%h2 package_install
 %p
   Performs all package installation steps:
   * download
@@ -78,7 +78,7 @@
     :preserve
       user$ package_install
 %h4 Notes
-%h1 package_fetch_md5
+%h2 package_fetch_md5
 %p Fetches the package's md5 sum from the md5_url, if given.
 %h4 Input Parameters
 %p None.
@@ -97,7 +97,7 @@
     :preserve
       user$ package_fetch_md5
 %h4 Notes
-%h1 package_fetch
+%h2 package_fetch
 %p Fetches the package's archive file.
 %h4 Input Parameters
 %p None.
@@ -116,7 +116,7 @@
     :preserve
       user$ package_fetch
 %h4 Notes
-%h1 package_extract
+%h2 package_extract
 %p Extracts the package archive into the package source directory.
 %h4 Input Parameters
 %p None.
@@ -137,7 +137,7 @@
     :preserve
       user$ package_extract
 %h4 Notes
-%h1 package_configure
+%h2 package_configure
 %p Configures the package source (eg. ./configure ...).
 %h4 Input Parameters
 %p None.
@@ -156,7 +156,7 @@
     :preserve
       user$ package_configure
 %h4 Notes
-%h1 package_build
+%h2 package_build
 %p builds the package source (eg. make)
 %h4 Input Parameters
 %p None.
@@ -175,7 +175,7 @@
     :preserve
       user$ package_build
 %h4 Notes
-%h1 package_make_install
+%h2 package_make_install
 %p make install  the package source (eg. make)
 %h4 Input Parameters
 %p None.
@@ -194,7 +194,7 @@
     :preserve
       user$ package_make_install
 %h4 Notes
-%h1 package_activate
+%h2 package_activate
 %p activates the package
 %h4 Input Parameters
 %p None.
@@ -213,7 +213,7 @@
     :preserve
       user$ package_activate
 %h4 Notes
-%h1 package_setup
+%h2 package_setup
 %p Sets up the package
 %h4 Input Parameters
 %p None.
@@ -234,7 +234,7 @@
     :preserve
       user$ package_setup
 %h4 Notes
-%h1 package_deactivate
+%h2 package_deactivate
 %p deactivates the package
 %h4 Input Parameters
 %p None.
@@ -253,7 +253,7 @@
     :preserve
       user$ package_deactivate
 %h4 Notes
-%h1 package_activate_if_first
+%h2 package_activate_if_first
 %p
   Activates the package version , if another package version has not yet been
   activated.
@@ -276,7 +276,7 @@
     :preserve
       user$ package_activate_if_first
 %h4 Notes
-%h1 package_ldconfig
+%h2 package_ldconfig
 %p Sets up system level ldconfigs for the package libraries.
 %h4 Input Parameters
 %p None.
@@ -295,7 +295,7 @@
     :preserve
       user$ package_ldconfig
 %h4 Notes
-%h1 package_profile_d
+%h2 package_profile_d
 %p Sets up system level profile_d configuration for the package
 %h4 Input Parameters
 %p None.
@@ -314,7 +314,7 @@
     :preserve
       user$ package_profile_d
 %h4 Notes
-%h1 package_uninstall
+%h2 package_uninstall
 %p Uninstalls the package
 %h4 Input Parameters
 %p None.
@@ -333,7 +333,7 @@
     :preserve
       user$ package_uninstall
 %h4 Notes
-%h1 package_patch
+%h2 package_patch
 %p Applies any patches found for the current package.
 %h4 Input Parameters
 %p None.
@@ -352,7 +352,7 @@
     :preserve
       user$ package_patch
 %h4 Notes
-%h1 package_apply_patches
+%h2 package_apply_patches
 %p Applies patches found
 %h4 Input Parameters
 %p None.
@@ -371,7 +371,7 @@
     :preserve
       user$ package_apply_patches
 %h4 Notes
-%h1 package_usage
+%h2 package_usage
 %p Sets up system level usage configuration for the package
 %h4 Input Parameters
 %p None.
@@ -390,7 +390,7 @@
     :preserve
       user$ package_usage
 %h4 Notes
-%h1 package_cli
+%h2 package_cli
 %p Parses package CLI arguments
 %h4 Input Parameters
 %p None.
@@ -409,7 +409,7 @@
     :preserve
       user$ package_cli
 %h4 Notes
-%h1 package_active
+%h2 package_active
 %p Parses package active arguments
 %h4 Input Parameters
 %p None.
@@ -428,7 +428,7 @@
     :preserve
       user$ package_active
 %h4 Notes
-%h1 package_must be
+%h2 package_must be
 %p Parses package must be arguments
 %h4 Input Parameters
 %p None.
@@ -447,7 +447,7 @@
     :preserve
       user$ package_must be
 %h4 Notes
-%h1 packages_must_be_active
+%h2 packages_must_be_active
 %p Parses package must_be_active arguments
 %h4 Input Parameters
 %p None.
