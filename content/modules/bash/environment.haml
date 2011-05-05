@@ -13,13 +13,24 @@
   %hr
 
 %h1
-  Module environment
+  Environment Module
+
+%h2 What it does
+The Environment Module gives you information about the user's currently-running environment, including available commands and functions, as well as shell interactivity.
+
+%h2 Functions
+
+%pre.code
+  :preserve
+    command_exists()
+    is_a_function()
+    shell_is_interactive()
+    
 
 %h2
   DSL
 %p
   Read the
   %a{:href => "/modules/bash/environment/dsl/"}
-    environment module dsl documentation
-
-
+    Environment module DSL documentation 
+  for more detail on the individual Environment functions.
