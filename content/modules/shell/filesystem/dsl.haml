@@ -1,0 +1,894 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/" }
+    Bash
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/filesystem/" }
+    filesystem
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/filesystem/dsl/" }
+    DSL API :: filesystem
+  %hr
+
+%h1
+  Module filesystem
+
+%h1 source_files
+%p Safely source files only if they exists and are nonempty.
+%h4 Input Parameters
+%p One or more files.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p Nonempty files given will be sourced into the calling environment.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no files are given to sources.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ source_files &quot;$HOME/.dotfiles/scripts/functions&quot;
+%h1 nonempty_files
+%p Outputs a subset of the named files that are nonempty.
+%h4 Input Parameters
+%p One or more files.
+%h4 Stream Outputs
+%p
+  Each nonempty filename parameter will be printed to STDOUT of the calling
+  environment.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no file names are given as arguments.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ nonempty_files a $HOME/.bdmsrc c
+      /Users/wayneeseguin/.bdsmrc
+%h1 ensure_paths_exist
+%p
+  Iterates over the list of given paths, creates the directory if it
+  does not exist.
+%h4 Input Parameters
+%p A list of paths to create if missing.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p Paths that were given but do not exist will be created.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no paths were given to.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ ls -a
+      . ..
+      user$ ensure_paths_exist a b c
+      user$ ls -a
+      . .. a b c
+%h1 remove_files
+%p Removes the given files, if they exist.
+%h4 Input Parameters
+%p One or more file names/paths.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p
+  The named files will no longer exist on the system, if they existed to begin
+  with.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if no files were named.
+  Fails if a named file is a directory.
+  Fails if a named file exists but is not a file.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ touch a b c
+      user$ ls -a
+      . .. a b c
+      user$ remove_files a b c
+      user$ ls
+      . ..
+%h1 remove_paths
+%p Function Description
+%h4 Input Parameters
+%p Positional Parameter listing and descriptions.
+%h4 Stream Outputs
+%p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
+%h4 Environmental effects
+%p What, if any, environmental side effects this function causes. 'None.' for none.
+%h4 Return Codes
+%p
+  0 if ...
+  1 if ...
+%h4 Failure Scenarios
+%p Fails if ...
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ {{ setup the scenario }}
+      user$ function_name {{ parameters }}
+      user$ {{ demonstrate the results}}
+%h1 ensure_files_exist
+%p
+  Iterates over the list of given files, creates the directory if it
+  does not exist.
+%h4 Input Parameters
+%p A list of files to create if missing.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p files that were given but do not exist will be created.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p Fails if no files were given to.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ ls -a
+      . ..
+      user$ ensure_files_exist a b c
+      user$ ls -a
+      . .. a b c
+%h1 ensure_files_are_executable
+%p Sets the executable bits on a file if it is not executable.
+%h4 Input Parameters
+%p One or more file name/paths
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p Files that were given and not executable will have their execute bits set.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if no files were given as parameters.
+  Fails if one of the files given was a directory.
+  Fails if one of the files given does not exist.
+  Fails if one of the files paths does not exist.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ ensure_files_are_executable /etc/rc.d/postgresql
+%h1 link
+%p Create a symlink from source to target.
+%h4 Input Parameters
+%p
+  First parameter is the source
+  Second parameter is the target
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p Symlink is created if no failure conditions are triggered.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if target exists and is a file.
+  Fails if target exists and is a directory.
+%h4 Usage Examples
+%p The following usages are equivalent
+%pre
+  %code
+    :preserve
+      user$ link from /home/user/.vim/vimrc to /home/user/.vimrc
+      user$ link /home/user/.vim/vimrc to /home/user/.vimrc
+      user$ link /home/user/.vim/vimrc /home/user/.vimrc
+%h1 move_directory
+%p
+  Moves a directory from one location to another.
+  (This is also used to rename a directory.)
+%h4 Input Parameters
+%p
+  The first parameter is the source directory name
+  The second parameter is the target directory name
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p If successful, a directory is renamed (moved).
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if the source directory is not specified.
+  Fails if the target directory is not specified.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ move_directory &quot;freetds-0.91rc&quot;* to &quot;freetds-0.91&quot;
+%h1 move_file
+%p
+  Moves a file from one location to another.
+  (This is also used to rename a file.)
+%h4 Input Parameters
+%p
+  The first parameter is the source file name
+  The second parameter is the target file name
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p If successful, a file is renamed (moved).
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if the source file is not specified.
+  Fails if the target file is not specified.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ move_file &quot;$HOME/.bashrc&quot; to &quot;$HOME/.bashrc.orig&quot;
+%h1 copy_file
+%p
+  Copys a file from one location to another.
+  (This is also used to rename a file.)
+%h4 Input Parameters
+%p
+  The first parameter is the source file name
+  The second parameter is the target file name
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p If successful, a file is renamed (copyd).
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if the source file is not specified.
+  Fails if the target file is not specified.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ copy_file &quot;$HOME/.bashrc&quot; to &quot;$HOME/.bashrc.orig&quot;
+%h1 copy_files_to
+%p Copys a given list of files into the named path.
+%h4 Input Parameters
+%p
+  The first parameter is the path to copy the files into.
+  Remaining parameters are the file name/path list.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p If successful, all named files are copied into the target path.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if no target path is given.
+  Fails if no files are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ copy_files_to &quot;$HOME/backup&quot; &quot;$HOME/.bashrc&quot; &quot;$HOME/.bash_profile&quot;
+%h1 copy_directories_to
+%p Copys a given list of directories into the named path.
+%h4 Input Parameters
+%p
+  The first parameter is the path to copy the directorys into.
+  Remaining parameters are the directory name/path list.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p If successful, all named directories are copied into the target path.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if no target path is given.
+  Fails if no directories are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ copy_directories_to &quot;$HOME/backup/&quot; &quot;$HOME/bin&quot; &quot;$HOME/projects&quot;
+%h1 copy_directory
+%p
+  Copys a directory from one location to another.
+  (This is also used to rename a directory.)
+%h4 Input Parameters
+%p
+  The first parameter is the source directory name
+  The second parameter is the target directory name
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p If successful, a directory is renamed (copyd).
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if the source directory is not specified.
+  Fails if the target directory is not specified.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ copy_directory &quot;freetds-0.91rc&quot;* to &quot;freetds-0.91&quot;
+%h1 move_files_to
+%p Moves a given list of files into the named path.
+%h4 Input Parameters
+%p
+  The first parameter is the path to move the files into.
+  Remaining parameters are the file name/path list.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p If successful, all named files are copied into the target path.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if no target path is given.
+  Fails if no files are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ move_files_to &quot;$HOME/backup&quot; &quot;$HOME/.bashrc&quot; &quot;$HOME/.bash_profile&quot;
+%h1 chown_files
+%p Change ownership of a list of files.
+%h4 Input Parameters
+%p
+  First parameter is the new owner[:group] of the files.
+  Remaining parameters are the file names/paths.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if no new owner[:group] was specified.
+  Fails if no list of files was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ chown_files $USER &quot;$HOME/.bashrc&quot; &quot;$HOME/.bash_profile&quot;
+%h1 chown_paths
+%p Change ownership of a list of paths.
+%h4 Input Parameters
+%p
+  First parameter is the new owner[:group] of the paths.
+  Remaining parameters are the path names/paths.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if no new owner[:group] was specified.
+  Fails if no list of paths was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ chown_paths $USER &quot;$HOME&quot; &quot;/usr/local&quot;
+%h1 chown_paths_recursively
+%p Change ownership of a list of paths, recursively.
+%h4 Input Parameters
+%p
+  First parameter is the new owner[:group] of the paths.
+  Remaining parameters are the path names/paths.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if no new owner[:group] was specified.
+  Fails if no list of paths was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ chown_paths_recursively $USER &quot;$HOME&quot; &quot;/usr/local&quot;
+%h1 chmod_files
+%p Change ownership of a list of files.
+%h4 Input Parameters
+%p
+  First parameter is the new owner[:group] of the files.
+  Remaining parameters are the file names/files.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if no new owner[:group] was specified.
+  Fails if no list of files was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ chmod_files $USER &quot;$HOME&quot; &quot;/usr/local&quot;
+%h1 chmod_paths
+%p Change ownership of a list of paths.
+%h4 Input Parameters
+%p
+  First parameter is the new owner[:group] of the paths.
+  Remaining parameters are the path names/paths.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if no new owner[:group] was specified.
+  Fails if no list of paths was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ chmod_paths $USER &quot;$HOME&quot; &quot;/usr/local&quot;
+%h1 chmod_paths_recursively
+%p Change ownership of a list of paths, recursively.
+%h4 Input Parameters
+%p
+  First parameter is the new owner[:group] of the paths.
+  Remaining parameters are the path names/paths.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if no new owner[:group] was specified.
+  Fails if no list of paths was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ chmod_paths_recursively $USER &quot;$HOME&quot; &quot;/usr/local&quot;
+%h1 enter
+%p
+  Changes the current working directory ($PWD) to the given directory with
+  sanity checks.
+%h4 Input Parameters
+%p First parameter is the directory to change into.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p
+  The current working directory (PWD) will become the given directory if
+  successful.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if no directory was given.
+  Fails if the given directory does not exist.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ enter &quot;/usr/local/src&quot;
+%h1 hash_file
+%p Set and get key/value pairs from a given has file.
+%h4 Input Parameters
+%p
+  The first parameter is the file name/path for the hash file.
+  The second parameter is the key name.
+  The third (optional) parameter is the value to assign to the given key.
+%h4 Stream Outputs
+%p The value of the key retrieved is printed if no value parameter was given.
+%h4 Environmental effects
+%p
+  If a value parameter was given the key=value pair is written to the named
+  hash file.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p
+  Fails if no file name/path was provided.
+  Fails if no key name was given.
+  Fails if the file path does not exist.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ hash_file /usr/local/bdsm/extensions/core/config/defaults website_url
+      https://bdsm.beginrescueend.com/
+%h1 file_is_executable
+%p Check if a file name/path is executable.
+%h4 Input Parameters
+%p First parameter is a file name/path.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the named file is executable.
+  1 if the named file is not executable or does not exist.
+%h4 Failure Scenarios
+%p Fails if no file name/path was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ file_is_executable /bin/bash
+      user$ echo $?
+      0
+
+      user$ file_is_executable /bin/asdfasdf
+      user$ echo $?
+      1
+%h1 file_exists
+%p Check if a file name/path exists.
+%h4 Input Parameters
+%p First parameter is a file name/path.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the named file exists.
+  1 if the named file does not exist or does not exist.
+%h4 Failure Scenarios
+%p Fails if no file name/path was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ file_exists /bin/bash
+      user$ echo $?
+      0
+
+      user$ file_exists /bin/asdfasdf
+      user$ echo $?
+      1
+%h1 file_is_nonempty
+%p Check if a file name/path is nonempty.
+%h4 Input Parameters
+%p First parameter is a file name/path.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the named file is nonempty.
+  1 if the named file is empty or does not exist.
+%h4 Failure Scenarios
+%p Fails if no file name/path was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ file_is_nonempty /bin/bash
+      user$ echo $?
+      0
+
+      user$ file_is_nonempty /bin/asdfasdf
+      user$ echo $?
+      1
+%h1 file_is_empty
+%p Check if a file name/path is empty.
+%h4 Input Parameters
+%p First parameter is a file name/path.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the named file is empty.
+  1 if the named file is not empty or does not exist.
+%h4 Failure Scenarios
+%p Fails if no file name/path was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ file_is_empty /bin/bash
+      user$ echo $?
+      1
+
+      user$ file_is_empty /bin/asdfasdf
+      user$ echo $?
+      0
+%h1 file_is_missing
+%p Check if a file name/path is missing.
+%h4 Input Parameters
+%p First parameter is a file name/path.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the named file is missing.
+  1 if the named file is not missing or does not exist.
+%h4 Failure Scenarios
+%p Fails if no file name/path was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ file_is_missing /bin/bash
+      user$ echo $?
+      1
+
+      user$ file_is_missing /bin/asdfasdf
+      user$ echo $?
+      0
+%h1 file_is_empty_or_missing
+%p Check if a file name/path is empty or missing.
+%h4 Input Parameters
+%p First parameter is a file name/path.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the named file is empty or missing.
+  1 if the named file exists or is nonempty.
+%h4 Failure Scenarios
+%p Fails if no file name/path was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ file_is_missing /bin/bash
+      user$ echo $?
+      1
+
+      user$ file_is_missing /bin/asdfasdf
+      user$ echo $?
+      0
+%h1 file_contains()
+%p Checks if a named file contains a given string/unix regexp pattern.
+%h4 Input Parameters
+%p
+  First parameter is the file name/path.
+  Second parameter is the pattern to match.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the given file contains the given pattern.
+  1 if the given file does not contain the given pattern.
+%h4 Failure Scenarios
+%p
+  Fails if the file path/name was not given
+  Fails if the pattern is not given.
+  Fails if the file path/name given either does not exist or is not a file.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ cat &quot;$HOME/test&quot;
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+
+      modules filesystem
+
+      if file_contains &quot;$HOME/.bdsmrc&quot; &quot;.*w00t.*&quot;
+      then
+        echo &quot;w00t! &quot;
+      else
+        echo &quot;no w00t :(&quot;
+      fi
+
+      user$ &quot;$HOME/test&quot;
+      no w00t :(
+%h1 symlink_exists
+%p Check if a symlink name/path exists.
+%h4 Input Parameters
+%p First parameter is a symlink name/path.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the named symlink exists.
+  1 if the named symlink does not exist or does not exist.
+%h4 Failure Scenarios
+%p Fails if no symlink name/path was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ symlink_exists /usr/local/bin/bdsm
+      user$ echo $?
+      0
+
+      user$ symlink_exists /bin/asdfasdf
+      user$ echo $?
+      1
+%h1 directory_exists
+%p Check if a directory name/path exists.
+%h4 Input Parameters
+%p First parameter is a directory name/path.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the named directory exists.
+  1 if the named directory does not exist or does not exist.
+%h4 Failure Scenarios
+%p Fails if no directory name/path was given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ directory_exists /usr/local/bin/bdsm
+      user$ echo $?
+      0
+
+      user$ directory_exists /bin/asdfasdf
+      user$ echo $?
+      1
+%h1 function_name
+%p Function Description
+%h4 Input Parameters
+%p Positional Parameter listing and descriptions.
+%h4 Stream Outputs
+%p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
+%h4 Environmental effects
+%p What, if any, environmental side effects this function causes. 'None.' for none.
+%h4 Return Codes
+%p
+  0 if ...
+  1 if ...
+%h4 Failure Scenarios
+%p Fails if ...
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ {{ setup the scenario }}
+      user$ function_name {{ parameters }}
+      user$ {{ demonstrate the results}}
+%h1 function_name
+%p Function Description
+%h4 Input Parameters
+%p Positional Parameter listing and descriptions.
+%h4 Stream Outputs
+%p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
+%h4 Environmental effects
+%p What, if any, environmental side effects this function causes. 'None.' for none.
+%h4 Return Codes
+%p
+  0 if ...
+  1 if ...
+%h4 Failure Scenarios
+%p Fails if ...
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ {{ setup the scenario }}
+      user$ function_name {{ parameters }}
+      user$ {{ demonstrate the results}}
+%h1 function_name
+%p Function Description
+%h4 Input Parameters
+%p Positional Parameter listing and descriptions.
+%h4 Stream Outputs
+%p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
+%h4 Environmental effects
+%p What, if any, environmental side effects this function causes. 'None.' for none.
+%h4 Return Codes
+%p
+  0 if ...
+  1 if ...
+%h4 Failure Scenarios
+%p Fails if ...
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ {{ setup the scenario }}
+      user$ function_name {{ parameters }}
+      user$ {{ demonstrate the results}}
+%h1 function_name
+%p Function Description
+%h4 Input Parameters
+%p Positional Parameter listing and descriptions.
+%h4 Stream Outputs
+%p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
+%h4 Environmental effects
+%p What, if any, environmental side effects this function causes. 'None.' for none.
+%h4 Return Codes
+%p
+  0 if ...
+  1 if ...
+%h4 Failure Scenarios
+%p Fails if ...
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ {{ setup the scenario }}
+      user$ function_name {{ parameters }}
+      user$ {{ demonstrate the results}}
+%h1 function_name
+%p Function Description
+%h4 Input Parameters
+%p Positional Parameter listing and descriptions.
+%h4 Stream Outputs
+%p What gets printed to STDOUT and STDERROR. 'None.' if nothing is output.
+%h4 Environmental effects
+%p What, if any, environmental side effects this function causes. 'None.' for none.
+%h4 Return Codes
+%p
+  0 if ...
+  1 if ...
+%h4 Failure Scenarios
+%p Fails if ...
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ {{ setup the scenario }}
+      user$ function_name {{ parameters }}
+      user$ {{ demonstrate the results}}
+%p Replace contents in a file with a given (sed) regex pattern.
+%p
+  Example:
+  replace_content &quot;^PREFIX =.*&quot; with &quot;${install_path}&quot; in Makefile
+%h1 file_matches_md5
+%p Fetches the package's md5 sum from the md5_url, if given.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p none.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p
+  0 if the file matches the md5sum
+  1 if the file does not match the md5sum
+  1 if the file is empty or missing
+%h4 Failure Scenarios
+%p
+  Fails if no file name/path was given.
+  Fails if no md5 string was given.
+%h4 Usage Examples
+%p Example Usage:
+%p user$ file_matches_md5
+%h4 Notes

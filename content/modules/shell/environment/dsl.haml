@@ -1,0 +1,107 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/" }
+    Shell
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/environment/" }
+    environment
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/environment/dsl/" }
+    DSL API :: environment
+  %hr
+
+%h1
+  Module environment
+
+%h2 command_exists()
+%p Checks to see whether a command exists within the current environment and PATH
+%h4 Input Parameters
+%p First parameter is a command name.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p none.
+%h4 return codes
+%p
+  0 if the command was found in the current environment
+  1 if the command was not found in the current environment
+%h4 failure scenarios
+%p Fails if no command name was given.
+%h4 usage examples
+%pre
+  %code
+    :preserve
+      user$ command_exists adsf
+      user$ echo $?
+      1
+
+      user$ command_exists ls
+      user$ echo $?
+      0
+%h2 is_a_function()
+%p Checks to see whether a named function exists within the current environment
+%h4 Input Parameters
+%p First parameter is a command name.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p none.
+%h4 return codes
+%p
+  0 if the function exists
+  1 if the function does not exist
+%h4 failure scenarios
+%p Fails if no function name was given.
+%h4 usage examples
+%pre
+  %code
+    :preserve
+      user$ is_a_function rvm
+      user$ echo $?
+      0
+
+      user$ is_a_function asdf
+      user$ echo $?
+      1
+
+      user$ is_a_function ls
+      user$ echo $?
+      1
+%h2 shell_is_interactive()
+%p Checks if the currently running shell is interactive (user controlled).
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p none.
+%h4 return codes
+%p
+  0 if the shell is interactive (user controlled)
+  1 if the shell is not interactive
+%h4 failure scenarios
+%p None currently.
+%h4 usage examples
+%p
+  user$ cat $HOME/test
+  \!/usr/bin/env bash
+  source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+  modules environment # Load the trace module.
+%p
+  if shell_is_interactive
+  then
+  echo &quot;Shell is Interactive! &quot;
+  else
+  echo &quot;Shell is Not Interactive! &quot;
+  fi
+%p
+  user$ &quot;$HOME/test&quot;
+  Shell is Not Interactive!
+%p
+  user$ source &quot;$HOME/test&quot;
+  Shell is Interactive!

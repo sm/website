@@ -1,0 +1,318 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/" }
+    Bash
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/help/" }
+    help
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/help/dsl/" }
+    DSL API :: help
+  %hr
+
+%h1
+  Module help
+
+%h2 show_help()
+%p
+  Display help for the current extension based on settings declared in the help
+  action.
+%h4 Input Parameters
+%p First parameter is the help section to display, default is all sections 'usage'.
+%h4 Stream Outputs
+%p Prints out formatted help sections to the calling environments STDOUT stream.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ show_help usage
+%h2 description()
+%p Set the string that will be printed when the actions help section is output.
+%h4 Input Parameters
+%p First parameter is a string containing a description of the extension.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Fails if no description is given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ description &quot;This extension handles X Y and Z.&quot;
+%h2 help_description()
+%p Outputs the collected help description.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p Prints the help description output.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p None.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ description &quot;This extension handles X Y and Z.&quot;
+%h2 actions()
+%p Set the string that will be printed when the actions help section is output.
+%h4 Input Parameters
+%p First parameter is a string of the action descriptions.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p Fails if no actions are given.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ actions &quot;install  - Installs the extension...&quot;
+%h2 action()
+%p Adds an action definition for help output.
+%h4 Input Parameters
+%p
+  First parameter is the name of the extension action
+  Second parameter is the description of the extension action
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p The action description will be stored for use on help output.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p
+  Fails if an action name is not given.
+  Fails if a description is not provided.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ action &quot;install&quot;  &quot;Installs the extension...&quot;
+%h2 note()
+%p Adds a note definition for help Notes section.
+%h4 Input Parameters
+%p
+  First parameter is a string containing any note for the notes section of
+  the current extension's help output.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success.
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ note &quot;Help for this extension can be found in #beginrescueend on irc.freenode.net&quot;
+%h2 dependencies()
+%p Specify content for the dependencies section of the help command.
+%h4 Input Parameters
+%p
+  First parameter is a string containing any dependencies for the dependencies
+  section of the current extension's help output.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ dependencies &quot; * pcre&quot;
+%h2 resource()
+%p Add a resource for the Resources section of the help command.
+%h4 Input Parameters
+%p
+  First parameter is a string containing any resources for the resources
+  section of the current extension's help output.
+%h4 Stream Outputs
+%p None.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ resource &quot;website: ...&quot;
+%h2 help_actions()
+%p
+  Outputs the help actions in a formatted manner.
+  Outputs a message if there are no actions.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p
+  Prints a formatted listing of the actions and their descriptions to the
+  calling environments STDOUT.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ cat $HOME/test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules help
+
+      action &quot;help&quot; &quot;Displays the help output for the ${extension} extension&quot;
+      action &quot;install&quot; &quot;Installs Z redis package&quot;
+      action &quot;uninstall&quot; &quot;Uninstalls Z redis package&quot;
+
+      help_actions
+
+      user$ &quot;$HOME/test&quot;
+      help      - Displays the help output for the redis extension
+      install   - Installs Z redis package
+      uninstall - Uninstalls Z redis package
+%h2 help_notes()
+%p
+  Outputs the help notes in a formatted manner.
+  Outputs a message if there are no notes.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p Prints a formatted listing of the notes to the calling environments STDOUT.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ cat $HOME/test
+      #!/usr/bin/env bash
+      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      modules help
+
+      note &quot;Don't forget the milk! &quot;
+      note &quot;... and cookies... mmm....&quot;
+
+      help_notes
+
+      user$ &quot;$HOME/test&quot;
+      * Don't forget the milk!
+      * ... and cookies... mmm....
+%h2 help_dependencies()
+%p Outputs the help dependencies in a formatted manner.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p
+  Prints a formatted listing of the current extensions defined dependencies to
+  the calling environments STDOUT.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%h2 help_resources()
+%p
+  Outputs the help notes in a formatted manner.
+  Outputs a message if there are no notes.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p
+  Prints a formatted listing of the defined resources to the calling
+  environments STDOUT.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%h2 help_section()
+%p Displays a help section header.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p Prints the given string as a help section header.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ help_section Usage
+%h2 help_usage()
+%p Display the CLI signature.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p Prints the CLI command signature.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ help_usage
+      bdsm core {action} [arguments...]
+%h2 usage()
+%p Display the usage help output of the command. This displays all help sections.
+%h4 Input Parameters
+%p None.
+%h4 Stream Outputs
+%p Prints all help sections to the STDOUT of the calling environment.
+%h4 Environmental effects
+%p None.
+%h4 Return Codes
+%p 0 for success
+%h4 Failure Scenarios
+%p No failure scenarios currently.
+%h4 Usage Examples
+%pre
+  %code
+    :preserve
+      user$ usage
