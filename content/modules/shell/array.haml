@@ -1,0 +1,41 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/" }
+    Shell
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/array/" }
+    array
+  %hr
+
+%h1
+  Array Module
+
+%h2 What it does
+The Array Module adds array manipulation functionality within the BDSM framework, such as push, unshift, length, and join operations.
+
+%h2 Functions
+
+%pre.code
+  :preserve
+    array_is_nonempty()
+    array_last_element()
+    array_first_element()
+    array_push()
+    array_length()
+    array_unshift()
+    array_join()
+    array_largest()
+
+%h2
+  DSL
+%p
+  Read the
+  %a{:href => "/modules/shell/array/dsl/"}
+    Array module DSL documentation
+  for more detail on the individual Array functions.
+

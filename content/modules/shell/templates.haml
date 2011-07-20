@@ -1,0 +1,36 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/" }
+    Shell
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/templates/" }
+    templates
+  %hr
+
+  %h1
+    Array Module
+
+%h2 What it does
+The Templates module adds functionality to create and install templates, which can ease development of new extensions.
+
+%h2 Functions
+
+%pre.code
+  :preserve
+    template_exists()
+    install_template()
+    seed_template()
+
+%h2
+  DSL
+%p
+  Read the
+  %a{:href => "/modules/shell/templates/dsl/"}
+    Templates module DSL documentation
+  for more detail on the individual Templates functions.
+

@@ -1,0 +1,34 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/" }
+    Shell
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/project/" }
+    project
+  %hr
+
+%h1
+  Project Module
+
+%h2 What it does
+The Project module sets up an environment and VCS (defaulted to git) for your project.
+
+%h2 Functions
+
+%pre.code
+  :preserve
+    project_initialize()
+    vcs()
+
+%h2
+  DSL
+%p
+  Read the
+  %a{:href => "/modules/shell/array/dsl/"}
+    Project module DSL documentation
+  for more detail on the individual Project functions.

@@ -1,0 +1,38 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/" }
+    Shell
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/rvm/" }
+    rvm
+  %hr
+
+%h1
+  RVM Module
+
+%h2 What it does
+The Array Module gives BDSM the ability to add Rubies or gems to your environment using RVM.
+
+%h2 Functions
+
+%pre.code
+  :preserve
+    rvm_install()
+    install_gem()
+    install_gems()
+
+%h2
+  DSL
+%p
+  Read the
+  %a{:href => "/modules/shell/rvm/dsl/"}
+    RVM module DSL documentation
+  for more detail on the individual RVM module functions.
+
+
+

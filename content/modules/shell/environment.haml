@@ -1,0 +1,36 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/" }
+    Modules
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/" }
+    Shell
+  &nbsp;>&nbsp;
+  %a{ :href => "/modules/shell/environment/" }
+    environment
+  %hr
+
+%h1
+  Environment Module
+
+%h2 What it does
+The Environment Module gives you information about the user's currently-running environment, including available commands and functions, as well as shell interactivity.
+
+%h2 Functions
+
+%pre.code
+  :preserve
+    command_exists()
+    is_a_function()
+    shell_is_interactive()
+
+
+%h2
+  DSL
+%p
+  Read the
+  %a{:href => "/modules/shell/environment/dsl/"}
+    Environment module DSL documentation
+  for more detail on the individual Environment functions.
