@@ -20,18 +20,16 @@
   Getting started
 %p
   Each of the modules below may be tested by creating a simple script beginning
-  with the following two lines of code.
+  with the following shebang (first line of code).
 %pre.code
   :preserve
-    #!/usr/bin/env bash
-    source "/usr/local/bdsm/modules/shell/core/initialize" # Load BDSM framework
+    #!/usr/bin/env bdsm
+    # Note the shebang line above, this loads the BDSM framework!
 %p
   A simple example of this is to use the filesystem module.
 %pre.code
   :preserve
     #!/usr/bin/env bdsm
-
-    # Note the shebang above, this loads the BDSM framework!
 
     modules bdsm/filesystem # We're going to use the system module.
 
