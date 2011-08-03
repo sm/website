@@ -29,9 +29,12 @@
   A simple example of this is to use the filesystem module.
 %pre.code
   :preserve
-    #!/usr/bin/env bash
-    source "/usr/local/bdsm/modules/shell/core/initialize" # Load BDSM framework
-    modules filesystem # We're going to use the system module.
+    #!/usr/bin/env bdsm
+
+    # Note the shebang above, this loads the BDSM framework!
+
+    modules bdsm/filesystem # We're going to use the system module.
+
     if file_is_nonempty "$HOME/.bashrc" # Provided by the filesystem module
     then
       log "$HOME/.bashrc is nonempty! " # log() is provided by logging module
