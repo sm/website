@@ -66,15 +66,12 @@
     root# bdsm udpate repository
 
 %p
-  Then we install the extension(s) that we require.
-%pre.code
-  :preserve
-    root# bdsm extend &lt;extension_name&gt; [&lt;extension_name&gt; [ ...]]
+  Internal extensions (found at https://github.com/wayneeseguin/bdsm-extensions)
+  are now installed by default when BDSM is installed.
 
 %p
-  Additionally, you may also manually copy an extension directory into the
-  extensions directory ("$bdsm_path/extensions").
-
+  Additionally, you may also manually copy your own extension directory into the
+  external extensions directory ("$bdsm_path/extensions/external/").
 
 %h2
   Updating
