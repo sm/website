@@ -154,9 +154,9 @@
   %code
     :preserve
       user$ cat $HOME/test
-      #!/usr/bin/env bash
-      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
-      modules array
+      #!/usr/bin/env bdsm
+
+      modules bdsm/array
 
       my_array=(1 2 3 4)
       echo ${my_array[@]}

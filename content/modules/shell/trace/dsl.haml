@@ -163,9 +163,8 @@
   %code
     :preserve
       user$ cat ./test
-      #!/usr/bin/env bash
-      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
-      modules trace # Load the trace module.
+      #!/usr/bin/env bdsm
+
       enable_backtrace
       echo &quot;Error exit with backtrace is now off.&quot;
       false # Does not cause exiting with backtrace printing.
@@ -194,9 +193,8 @@
   %code
     :preserve
       user$ cat ./test
-      #!/usr/bin/env bash
-      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
-      modules trace # Load the trace module.
+      #!/usr/bin/env bdsm
+
       disable_backtrace
       echo &quot;Error exit with backtrace is now off.&quot;
       false # Does not cause exiting with backtrace printing.
@@ -223,9 +221,6 @@
   %code
     :preserve
       user$ cat ./test
-      #!/usr/bin/env bash
-      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
-      modules trace # Load the trace module.
 
       functiona()
       {

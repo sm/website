@@ -89,9 +89,9 @@
 %h4 usage examples
 %p
   user$ cat $HOME/test
-  \!/usr/bin/env bash
-  source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
-  modules environment # Load the trace module.
+  \!/usr/bin/env bdsm
+
+  modules bdsm/environment # Load the environment module.
 %p
   if shell_is_interactive
   then

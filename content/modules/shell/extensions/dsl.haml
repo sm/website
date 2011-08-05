@@ -43,9 +43,9 @@
   %code
     :preserve
       $ cat $HOME/test
-      #!/usr/bin/env bash
-      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
-      modules extensions
+      #!/usr/bin/env bdsm
+
+      modules bdsm/extensions
       extension_action ext list
 
       $  $HOME/test

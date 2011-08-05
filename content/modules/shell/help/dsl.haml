@@ -187,9 +187,9 @@
   %code
     :preserve
       user$ cat $HOME/test
-      #!/usr/bin/env bash
-      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
-      modules help
+      #!/usr/bin/env bdsm
+
+      modules bdsm/help
 
       action &quot;help&quot; &quot;Displays the help output for the ${extension} extension&quot;
       action &quot;install&quot; &quot;Installs Z redis package&quot;
@@ -220,9 +220,9 @@
   %code
     :preserve
       user$ cat $HOME/test
-      #!/usr/bin/env bash
-      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
-      modules help
+      #!/usr/bin/env bdsm
+
+      modules bdsm/help
 
       note &quot;Don't forget the milk! &quot;
       note &quot;... and cookies... mmm....&quot;

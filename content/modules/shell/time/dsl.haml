@@ -35,9 +35,9 @@
   %code
     :preserve
       user$ cat ./test
-      #!/usr/bin/env bash
-      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
-      modules trace time # Load the trace module.
+      #!/usr/bin/env bdsm
+
+      modules ext/time # Load the time module.
 
       timestamp_set
       echo $timestamp

@@ -698,10 +698,9 @@
   %code
     :preserve
       user$ cat &quot;$HOME/test&quot;
-      #!/usr/bin/env bash
-      source &quot;/usr/local/bdsm/modules/bash/core/initialize&quot; # Load BDSM framework core.
+      #!/usr/bin/env bdsm
 
-      modules filesystem
+      modules bdsm/filesystem
 
       if file_contains &quot;$HOME/.bdsmrc&quot; &quot;.*w00t.*&quot;
       then
