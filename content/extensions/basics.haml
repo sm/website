@@ -63,7 +63,7 @@
   First we pull the extension repository locally to the system,
 %pre.code
   :preserve
-    root# bdsm update repository
+    root# bdsm get head; bdsm sets update all ; bdsm ext update all
 
 %p
   Internal extensions (found at https://github.com/wayneeseguin/bdsm-extensions)
@@ -79,7 +79,7 @@
   Updating extensions from the main repository is done as follows.
 %pre.code
   :preserve
-    root# bdsm update &lt;extension_name&gt;
+    root# bdsm ext update &lt;extension_name&gt;
 
 %h2
   Extensions Creating / Editing / Developing
