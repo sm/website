@@ -1,4 +1,4 @@
-GA setup notes
+GA setup notes 20110811
 
 http://services.google.com/analytics/breeze/en/domains_subdomains/index.html
 
