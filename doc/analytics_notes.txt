@@ -1,0 +1,42 @@
+GA setup notes
+
+http://services.google.com/analytics/breeze/en/domains_subdomains/index.html
+
+Create separate profiles per subdomain
+Profile 1: Main
+Profile 2: rvm
+	filter 1: only include rvm subdomain
+Profile 3: bdsm
+	filter 2: only include bdsm subdomain
+
+Apply an advanced filter to differentiate subdomains within one profile:
+Filter Type: Custom filter > Advanced
+Field A: Hostname
+Extract A: (.*)
+Field B: Request URI
+Extract B: (.*)
+Output To: Request URI
+Constructor: /$A1$B1
+
+with this filter, results appear with the subdomain attached, e.g.
+	/bdsm.beginrescueend.com/home.html
+	/rvm.beginrescueend.com/home.html
+
+
+
+According to the Twitter Supplemental Documentation, you should use the following code 
+to implement a twitter button on your page:
+	  <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+	  <a href="http://code.google.com/apis/analytics"
+	     data-url="http://code.google.com/apis/analytics"
+	     class="twitter-share-button">Tweet</a>
+	To track this code with Google Analytics, you simply need to bind a callback function to the tweet event.
+	twttr.events.bind('tweet', function(event) {
+	  if (event) {
+	    var targetUrl;
+	    if (event.target && event.target.nodeName == 'IFRAME') {
+	      targetUrl = extractParamFromUri(event.target.src, 'url');
+	    }
+	    _gaq.push(['_trackSocial', 'twitter', 'tweet', targetUrl]);
+	  }
+	});

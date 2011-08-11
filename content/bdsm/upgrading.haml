@@ -11,9 +11,9 @@
   %hr
 
 %h1
-  Upgrading bdsm
+  Upgrading BDSM
 %p
-  bdsm supports two ways of upgrading itself, one to the latest gem and the other to the latest repository source.
+  BDS< supports two upgrade methods: one is to update to the latest gem (a full release version); the other is to the latest repository snapshot ("live" development version).
 %h3
   Upgrading to the latest release
 
@@ -21,11 +21,11 @@
   :preserve
     ∴ bdsm get latest
 %p
-  Will download and install the latest release.
+  Downloads and installs the latest full release as a gem.
 %h3
   Upgrading to the latest repository source
 %pre.code
   :preserve
     ∴ bdsm get head
 %p
-  will obtain the latest bdsm repository source and run ./install from that repository.
+  Obtains a local version of the latest BDSM repository sourcecode, and runs ./install directly from that repository.
