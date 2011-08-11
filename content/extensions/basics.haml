@@ -21,68 +21,62 @@
 %h2
   Actions
 %p
-  Actions may be scripts and/or binaries. The requirement is that they are of
-  a file type that is recognized as executable on the system BDSM is installed
-  to . As a precaution BDSM will restrict these types a slight bit futher.
+  Actions can comprise scripts and/or binaries. The key requirement is that their file type is recognized as executable by your operating system. However, as a precaution, BDSM restrains them just a little bit further:
 
 %p
-  In order to be a valid, an extension must provide at least a 'help' action.
+  A valid extension must always provide at least a 'help' action. (How else could it be a useful, worthy slave?)
 
 %p
-  What this means for
+  Want to train some slaves yourself? As an
   %a{:href => "/development/extensions/"}
-    extension developers
-  is that actions may be written in any language that will be available on the
-  target installation system.
+    extension developer,
+  you can write in any language that runs on the machine you are
+  targeting.
 
 %p
-  Actions must be located within the extension's bin/ directory.
+  Actions are located within an extension's bin/ directory.
 %p
-  Actions are exposed via the bdsm CLI as an API with the following general format,
+  Actions are exposed for your every command via the bdsm command-line in this general format:
 %pre.code
   :preserve
     user$ bdsm [bdsm options] &lt;extension&gt; &lt;action&gt; [extension arguments]
 
 %p
-  Any options that are passed at the end of the command are passed along to the
-  named extension action through a specific exported environment variable.
+  Any options you pass at the end of the command are communicated to the
+  particular action via a specific exported environment variable.
 %p
-  This means that no matter the language, everything is available by reading
-  the process environment.
-
+  So, no matter the native language an action is written in, everything it needs to know to perform its job obediently and with alacrity is available to it in one simple, standardized way: by reading its process environment.
 
 %h2
   Installing
 %p
-  Installation of extensions from the main repository is currently all that is
-  supported through the bdsm CLI API.
-%p
-  Other methods for extension installation are currently being developed.
+  At the moment, there's just one straightforward way to install new extensions into bdsm: you simply summon them from the main repository, via bdsm's command-line interface. (For your convenience [and amusement], we're also developing some other future methods for extension installation, too.)
 
 %p
-  First we pull the extension repository locally to the system,
+  Here's how it goes. First,
+   we pull the extension repository down to your local system,
 %pre.code
   :preserve
     root# bdsm get head; bdsm sets update all ; bdsm ext update all
 
 %p
   Internal extensions (found at https://github.com/wayneeseguin/bdsm-extensions)
-  are now installed by default when BDSM is installed.
+  are installed by default right along with BDSM.
 
 %p
-  Additionally, you may also manually copy your own extension directory into the
-  external extensions directory ("$bdsm_path/extensions/external/").
+  Additionally, you can also add your own custom extension directories, by copying them to the
+  external extensions directory tree ("$bdsm_path/extensions/external/").
 
 %h2
   Updating
 %p
-  Updating extensions from the main repository is done as follows.
+  Updating your extensions from the main bdsm repository is just as simple as a quick flick o' the cat:
 %pre.code
   :preserve
     root# bdsm ext update &lt;extension_name&gt;
 
 %h2
-  Extensions Creating / Editing / Developing
+  Extension Creation / Editing / Developing
 %p
   Please refer to the
   %a{:href => "/development/extensions/"}

@@ -12,45 +12,47 @@
 %h1
   Developing BDSM Core
 %p
-  For BDSM core development, it is recommended that you have a BDSM installation
-  locally for testing your changes and utilizing the workflow defined below.
+  For BDSM core development, it's best to create a BDSM installation
+  locally for testing your changes. That makes it a snap to use the workflow defined below.
 
 %h2
   Prerequisites
 %p
-  The first prerequisite is that you have
+  The first prerequisite is having
   %a{:href => "http://git-scm.com/"}
     Git
-  installed (1.7 or higher).
+  installed. (BDSM assumes you're using git 1.7, or later).
 %p
-  If you have not yet installed BDSM locally, follow the
+  If you have't already installed BDSM locally, follow the
   %a{:href => "/bdsm/install/"}
-    installation documentation
+    installation documentation.
 
 %h2
   Core development
 %p
-  Developing BDSM core is a straight forward process to get started.
+  Get started on developing BDSM core is pretty straightforward.
 %p
-  First set your extensions development path in your *development user's* ~/.bdsmrc.
-  On my system, I keep all of my code in ~/projects/bdsm/ related to the BDSM
-  project. This means that my ~/.bdsmrc will contain the following line.
+  First, set your extensions development path in your *development user's* ~/.bdsmrc.
+%p
+  On my system, I keep all my code related to the BDSM
+  project in ~/projects/bdsm/.
+  So my ~/.bdsmrc contains the following line:
 
 %pre.code
   :preserve
     export core_development_path="$HOME/projects/bdsm/core"
 
 %p
-  Next clone the repositories to the development paths you defined above.
+  Next, clone the repositories into the development paths you've defined:
 %pre.code
   :preserve
     user$ mkdir -p ~/projects/bdsm
     user$ git clone git://github.com/wayneeseguin/bdsm ~/projects/bdsm/core
 
 %p
-  We are now ready to start working on BDSM core.
+  That's it - you are now ready to start working on BDSM core!
 %p
-  There are four parts to the BDSM core framework.
+  There are four parts to the BDSM core framework:
   %ol
     %li Installer (./install)
     %li Bootstrap script (bin/bdsm)
@@ -60,21 +62,21 @@
 %h2
   Installer / Bootstrap Script
 %p
-  Be *sure* to talk to me if you are modifying either of these as I may be able
-  to reduce your pain :)
+  Please be *sure* to talk to me if you are modifying either of these, as I may be able
+  to save you a lot of pain [not the good kind] :)
 %p
-  To edit BDSM core in our $EDITOR, run the command below.
+  To edit BDSM core in your preferred $EDITOR, run the command below.
 %pre.code
   :preserve
     user$ bdsm core edit
 %p
-  Note that 'vi' will be launched in the terminal if no EDITOR variable is set
-  in your shell (usually in ~/.bash_profile or ~/.zshenv).
+  Note that if you haven't already set an EDITOR variable 
+  in your shell, 'vi' launches in your terminal. (usually you'll do that in your ~/.bash_profile or ~/.zshenv).
 
 %h2
   Core Extensions
 %p
-  To edit BDSM core extensions in your $EDITOR, run the command below.
+  To edit BDSM's core extensions in your $EDITOR, run this command:
 %pre.code
   :preserve
     user$ bdsm edit {{core,ext, or mod}}
@@ -82,23 +84,23 @@
 %h2
   Modules
 %p
-  To edit BDSM core modules in your $EDITOR, run the command below.
+  To edit BDSM's core modules in your $EDITOR, use this command:
 %pre.code
   :preserve
     user$ bdsm module edit X
 %p
-  You can list all core modules.
+  You can instantly list all the core modules of BDSM, with:
 %pre.code
   :preserve
     user$ bdsm modules list
 %p
-  You can list all DSL functions for a specific module.
+  Here's how to list all the DSL functions supported by any given module.
 %pre.code
   :preserve
     user$ bdsm modules dsl {{module name}}
 
 %p
-  If you wish to create a new module you may do so like this.
+  To create a new module, just do this:
 %pre.code
   :preserve
     user$ bdsm module create newmodule
@@ -106,37 +108,38 @@
 
 %h2 Submitting core changes
 %p
-  Once we are happy with our changes we can add our new extension to a branch and
-  send a pull request. First
+  Once you're happy with your changes, add your new extension to a git branch, then 
+  send a pull request to BDSM's maintainers. Here's the whole routine, twitch by twitch.
+
+%p  
+  First,
   %a{:href => "https://github.com/wayneeseguin/bdsm#fork_box"}
     fork the repository on GitHub
   into your account.
 
 %p
-  Next add your forked GitHub repository as a remote.
+  Next, add your forked GitHub repository as a remote.
 %pre.code
   :preserve
     user$ cd $(bdsm core src)
     user$ git remote add github git@github.com:{{your GitHub username}}/bdsm.git
 
 %p
-  Now add your awesome to a topic branch.
+  Now, add your awesome code to a spanking new topic branch.
 %pre.code
   :preserve
     user$ git checkout -b featureX # Or perhaps bugfixX
     user$ git add {{changed files}}
     user$ git commit -m "Added feature X." # Or "Bugfix: Fixed X... {{explain}}"
 %p
-  Next push your topic branch containing your wonderful feature addition and/or
-  bugfix code to your forked repository on GitHub.
+  Next, push your topic branch, containing all that moist and oh-so-delicious fresh code, right back up to your forked GitHub repository.
 %pre.code
   :preserve
     user$ git push github featureX # OR bugfixX
 
 %p
-  Browse to your GitHub account's bdsm repository and issue a
-  pull request to the
+  And, as the final climactic step, browse to your GitHub account's bdsm repo page, and click that big, slick, shiny Pull Request button, to signal the
   %a{:href => "https://github.com/wayneeseguin/bdsm.git"}
     main repository
-  \.
+  that there's more good stuff at hand. Ahhhhh. Satisfaction.
 
