@@ -15,13 +15,14 @@
 %h2
   Description
 %p
-  Extensions are best described as a namespaced collection of executable files
-  called 'actions'.
+  Extensions are namespaced collections of executable files called 'actions'.
 
 %h2
   Actions
 %p
-  Actions can comprise scripts and/or binaries. The key requirement is that their file type is recognized as executable by your operating system. However, as a precaution, BDSM restrains them just a little bit further:
+  Actions can comprise scripts and/or binaries. The one absolute requirement is that their file types are
+  recognized as executable by your operating system. However, as a precaution, BDSM restrains them
+  just a little bit further:
 
 %p
   A valid extension must always provide at least a 'help' action. (How else could it be a useful, worthy slave?)
@@ -45,19 +46,22 @@
   Any options you pass at the end of the command are communicated to the
   particular action via a specific exported environment variable.
 %p
-  So, no matter the native language an action is written in, everything it needs to know to perform its job obediently and with alacrity is available to it in one simple, standardized way: by reading its process environment.
+  So, no matter the native language an action is written in, everything it needs to know
+  to perform its job obediently and with alacrity is available to it in one simple, standardized way:
+  by reading its process environment.
 
 %h2
   Installing
 %p
-  At the moment, there's just one straightforward way to install new extensions into bdsm: you simply summon them from the main repository, via bdsm's command-line interface. (For your convenience [and amusement], we're also developing some other future methods for extension installation, too.)
+  At the moment, there's just one straightforward way to install new extensions into bdsm:
+  you simply summon them from the main repository, via bdsm's command-line interface.
+  (For your convenience [and amusement], we're also developing some other future methods for extension installation, too.)
 
 %p
-  Here's how it goes. First,
-   we pull the extension repository down to your local system,
+  Here's how it goes. First, pull the extension repository down to your local system,
 %pre.code
   :preserve
-    root# bdsm get head; bdsm sets update all ; bdsm ext update all
+    root# bdsm get head ; bdsm sets update all ; bdsm ext update all
 
 %p
   Internal extensions (found at https://github.com/wayneeseguin/bdsm-extensions)

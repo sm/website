@@ -15,38 +15,87 @@
 %p
   Badass Delectable Scripting Modules (BDSM) Framework
 
-%h2 Goal
+%h2 What It Is
 
 %p
-  The goal of BDSM is to create a framework for maintaining and sharing server
-  side scripts while exposing them through a consistent command line interface (CLI).
+  BDSM is a powerful new framework for developing, maintaining and sharing system scripts,
+  while exposing them for easy automation via a clean, consistent DSL-centric command-line interface.
+
+%h2 Why You'd Care
+
+%p
+  With BDSM, thousands of tools, utilities and applications running on your machine become
+  incredibly easy to automate and control. You'll find it quite invaluable for website development, too.
+%p
+  BDSM cuts away all the tedious, funky syntax that festoons your everyday command-line experience,
+  in favor of a lean, mean Ruby-like Domain-Specific Language,
+  just tailor-made for cracking your whip on those unruly system management tasks. Short, crisp words of command can convey such a tremendously
+  %em spine-tingling
+  authority, after all.
+%p
+  So, whether you're just looking for easier ways to run your own personal *nix-based machine
+  more efficiently, or whether you're already administering dozens, hundreds or
+  %em thousands
+  of machines at a time with a tool like Puppet or Chef, chances are excellent that BDSM will save you major headaches.
+%p
+  (In the latter case, the abstraction that BDSM painlessly interjects helps to seriously de-clutter your Puppet or Chef
+  work - making it easier to get things running right in the first place; significantly more portable across execution environments;
+  and far easier to maintain. What's not to love, in your own intensely personal way?)
 
 %h2 Architecture
 
 %p
-  BDSM itself is the core framework. Users may write / install 'extensions'
-  (think plugins) to the core framework in order to add CLI functionality to BDSM.
+  BDSM itself delivers a robust core framework, with minimal prerequisites. You just need GNU coreutils, plus Bash or ZShell.
+  (Your distro probably includes these already.)
+%p
+  One layer up from its core, BDSM includes a broad set of modules, which perform a comparable role to the standard
+  run-time loadable libraries found in classic programming languages.
+%p
+  Then, BDSM extensions step up another level, calling the lower-level functions provided by the modules to
+  implement the specific behaviors (aka actions) you'll command, as your scripts interface with the applications
+  and services running on your target machine environment. 
+%p
+  Dozens of extensions are in active development by a burgeoning crew of Open Source contributors right now,
+  with a diverse selection immediately available to get things off to a quite thrilling start.
+%p
+  And should you find that some critical action you need doesn't exist yet (our out-of-the-box goal for 1.0.0
+  is to have everything at least 90% of people want already in there), it's extremely easy to write
+  your own extension. Pick any language you like: C, Ruby, Perl, Lua, you name it;
+  if it can spit out an executable file that will run in your intended environment, you can use it.
 
 %h2 Creating Extensions
 
 %p
-  There are only a few requirements for the 'extensions'. The extension must be a
-  directory. Within this directory are (at least) the subdirectory bin/ with at
-  least one executable file called 'help'. Additionally in the root of the
-  extension directory there must be a text file called VERSION with a version
-  number that follows semantic versioning (http://semver.org/) in the format of
-  X.Y.Z where X,Y and Z are positive integers.
+  There are only a few requirements for a BDSM extension:
+  %ul
+    %li
+      All extensions get their own individual directory.
+    %li
+      Within each extension's main directory (minimally) you'll find a bin/ subdirectory
+      %ul
+        %li
+          with at least one executable file inside, called 'help'.
+    %li
+      Additionally, in the root of its main directory, every extension needs a VERSION text file,
+      complying with semantic versioning convention
+      %a{ :href => "http://semver.org/" }
+        (http://semver.org/);
+      i.e. in the format X.Y.Z, where X,Y & Z are all positive integers.
 
 %p
-  The contents of the bin directory can be *any* executable file.  This means for
-  example that C compiled binaries, Ruby Scripts, python, lua, etc... may all be
-  used according to requrements and/or user preferences.  Of course the extensions
-  which *I* write will likely be in Shell script ;)
+  The bin/ directory can contain *any* executable file type. So, C-compiled binaries, Ruby,
+  python, lua, etc. (not forgetting Shell scripts!) may all be used; whatever you prefer.
 
 %h2 Support
 
 %p
-  BDSM is continuously evolving thanks to constant community feedback.
-  The developer (Wayne E. Seguin) is highly responsive, addresses issues
-  quickly and cares about helping the community grow.
+  BDSM is continuously and rapidly evolving, thanks to constant community feedback.
+  BDSM's core developers (Wayne E. Seguin and Michal Papis) are highly responsive, address issues
+  quickly and are fully committed to helping the BDSM community grow.
+%br
+  (And the community's computers? Waiting breathlessly, attentively, and
+  %em above all, obediently;
+  ready and eager to leap to fulfill the 
+  %strong slightest whim
+  of their mistresses and masters, of course. :)
 
