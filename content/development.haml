@@ -10,40 +10,46 @@
   %a{:href => "/development/"} Development
 
 %p
-  Before developing contributions for BDSM's core, extensions or site, be sure to setup your BDSM development environment first.
-  After
+  Before developing contributions for BDSM's core, extensions or site, be sure
+  to setup your BDSM development environment first.  After
   %a{:href => "/bdsm/install"}
     installing BDSM
-  on your system, while logged into your regular user account, you can setup the BDSM development environment with one command.
+  on your system, while logged into your regular user account, you can setup the
+  BDSM development environment with one command.
 %pre.code
   :preserve
-    bdsm core dev setup
+    sm core dev setup
 %p
   This command sets up:
   %ul
     %li
-      \~/.bdsmrc file contents
+      \~/.smrc file contents
     %li
       BDSM project module interactive component, the commands
       %ul
         %li p - Change directory to given project / subproject.
-        %li pe - Change directory to given project / subproject, and open it in your $EDITOR (vim if no EDITOR has been set).
-        %li po - Change directory to given project / subproject, and open it in the filesystem viewer.
+        %li
+          pe - Change directory to given project / subproject,
+          and open it in your $EDITOR (vim if no EDITOR has been set).
+        %li
+          po - Change directory to given project / subproject,
+          and open it in the filesystem viewer.
     %li
-      Core, extensions and site repositories are placed in the projects path (by default, $HOME/projects/bdsm/).
+      Core, extensions and site repositories are placed in the projects path
+      (by default, $HOME/projects/sm/).
 
   As soon as the command completes, you can open a new shell and start using the project functions.
   For example, to switch directories to BDSM's core, and start editing it, just type:
   %pre.code
     :preserve
-      user ~/ $ pe bdsm core
-      user ~/projects/bdsm/ $   # Editor also launched here
+      user ~/ $ pe sm core
+      user ~/projects/sm/ $   # Editor also launched here
 
   The p, pe and po commands operate on a prefix basis; the shortest match wins.
   %pre.code
     :preserve
-      user ~/ $ pe bd c
-      user ~/projects/bdsm/core $  # Editor also launched here
+      user ~/ $ pe sm c
+      user ~/projects/sm/core $  # Editor also launched here
 
 %p
   %ul
