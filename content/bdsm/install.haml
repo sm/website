@@ -1,7 +1,9 @@
-%h1 Installing BDSM
+%h1 Installing the (BD)SM Framework
 
 %p
-  You may install either the latest release version of BDSM; or you can choose the latest up-to-the-minute development snapshots as they come, by summoning git HEAD.
+  You may install either the latest release version; or you can choose the
+  latest up-to-the-minute development snapshots as they come, by summoning
+  git HEAD.
 
 %h2
   Latest Release
@@ -12,25 +14,22 @@
 
 %pre.code
   :preserve
-    mkdir -p /usr/local/src &&
-    cd /usr/local/src &&
     version=$(curl https://bdsm.beginrescueend.com/releases/latest.txt) &&
-    curl -O https://bdsm.beginrescueend.com/releases/bdsm-${version}.tar.bz2 &&
-    tar jxf bdsm-${version}.tar.bz2 &&
-    cd bdsm-${version} &&
+    curl -O https://bdsm.beginrescueend.com/releases/sm-${version}.tar.bz2 &&
+    tar jxf sm-${version}.tar.bz2 &&
+    cd sm-${version} &&
     ./install
 
 %p
   Note: you can skip the first two lines if you prefer to install from your
   current directory.
 %p
-  The bdsm binary will be located in /usr/local/bin, and bdsm itself will be
-  located in /usr/local/bdsm.
+  The sm framework binaries will be located in /opt/sm/bin/sm and sm itself will
+  be entirely contained in /opt/sm/ with the exception of /etc/profile.d/sm.sh
+  for adding sm to the path.
 %p
-  If you do not already have /usr/local/bin in your path, add it in /etc/profile
-%pre.code
-  :preserve
-    PATH="$PATH:/usr/local/bin" ; export PATH
+  After installing be sure to either source /etc/profile or reopen your terminal
+  sessions.
 
 %h2
   Latest Development Snapshot (git HEAD)
@@ -38,9 +37,9 @@
   For the latest BDSM development, "live" (git HEAD):
 %pre.code
   :preserve
-    mkdir -p /usr/local/src &&
-    cd /usr/local/src &&
-    git clone git://github.com/wayneeseguin/bdsm.git &&
-    cd bdsm &&
+    curl -L https://github.com/sm/sm/tarball/master -o sm-head.tar.gz &&
+    tar zxf sm-head.tar.gz &&
+    mv sm-sm-* sm-head &&
+    cd sm-head &&
     ./install
 

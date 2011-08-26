@@ -41,17 +41,6 @@
   On my system, I keep all of my code in ~/projects/bdsm/ related to the BDSM
   project. This means that my ~/.bdsmrc will contain the following line.
 
-%pre.code
-  :preserve
-    export extensions_development_path="$HOME/projects/bdsm/extensions"
-
-%p
-  Next clone the repositories to the development paths you defined above.
-%pre.code
-  :preserve
-    user$ mkdir -p ~/projects/bdsm
-    user$ git clone git://github.com/wayneeseguin/bdsm-extensions ~/projects/bdsm/extensions
-
 %p
   We are now ready to start creating extensions.
 %pre.code
@@ -73,7 +62,7 @@
 %p
   Once we are happy with our changes we can add our new extension to a branch and
   send a pull request. First
-  %a{:href => "https://github.com/wayneeseguin/bdsm-extensions#fork_box"}
+  %a{:href => "https://github.com/sm/sm-gnu#fork_box"}
     fork the repository on github
   into your account.
 %p

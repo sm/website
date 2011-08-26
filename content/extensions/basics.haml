@@ -61,15 +61,18 @@
   Here's how it goes. First, pull the extension repository down to your local system,
 %pre.code
   :preserve
-    root# bdsm get head ; bdsm sets update all ; bdsm ext update all
+    root# sm get head ; sm sets update all ; sm ext update all
 
 %p
-  Internal extensions (found at https://github.com/wayneeseguin/bdsm-extensions)
-  are installed by default right along with BDSM.
+  Extension sets can be found at https://github.com/sm/sm-* and installed via
+  the sets command:
+%pre.code
+  :preserve
+    root# sm sets install gnu,libraries
 
 %p
-  Additionally, you can also add your own custom extension directories, by copying them to the
-  external extensions directory tree ("$bdsm_path/extensions/external/").
+  Additionally, you can also add your own custom extension directories, by
+  copying them to the external extensions directory tree ("$bdsm_path/extensions/external/").
 
 %h2
   Updating
@@ -77,7 +80,7 @@
   Updating your extensions from the main bdsm repository is just as simple as a quick flick o' the cat:
 %pre.code
   :preserve
-    root# bdsm ext update &lt;extension_name&gt;
+    root# sm sets update all ; sm ext update all
 
 %h2
   Extension Creation / Editing / Developing
