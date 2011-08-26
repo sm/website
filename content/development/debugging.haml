@@ -9,11 +9,11 @@
     Debugging
   %hr
 
-%h2 Debugging BDSM
+%h2 Debugging (BD)SM
 
 %p
-  The easiest way to get help with BDSM is to join the #bdsm channel
-  on freenode - You can use a
+  The easiest way to get help with the (BD)SM Framework is to join the
+  #beginrescueend channel on freenode - You can use a
   %a{:href => "http://webchat.freenode.net/?channels=bdsm"} web based client
   if you don't have one installed. If you're unable to chat in the channel,
   make sure you
@@ -21,7 +21,7 @@
 
 %p
   If you encounter an issue with BDSM, you can make it greatly easier
-  for the maintainers and support crew by following the steps below. 
+  for the maintainers and support crew by following the steps below.
   Each of them in turn helps provide increased insight into exactly what is going wrong.
 
 %h3 Tracking Down Bugs
@@ -30,18 +30,18 @@
   When telling us the problem, we need two key sets of information. One, we need the output
   of running bdsm like so:
 
-= sh_cmd "bdsm --trace <<command>>"
+= sh_cmd "sm --trace <<command>>"
 
 %p
   And, second, we want to see all the output you get from re-running the broken command using the trace option.
   e.g. if you see problems when you run:
 
-= sh_cmd "bdsm deploy"
+= sh_cmd "sm deploy"
 
 %p
   then re-run it with this added argument:
 
-= sh_cmd "bdsm --trace deploy"
+= sh_cmd "sm --trace deploy"
 
 %p
   To share this information efficiently with us in IRC, use a site like

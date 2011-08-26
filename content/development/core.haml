@@ -24,7 +24,7 @@
   installed. (BDSM assumes you're using git 1.7, or later).
 %p
   If you have't already installed BDSM locally, follow the
-  %a{:href => "/bdsm/install/"}
+  %a{:href => "/sm/install/"}
     installation documentation.
 
 %h2
@@ -32,22 +32,22 @@
 %p
   Get started on developing BDSM core is pretty straightforward.
 %p
-  First, set your extensions development path in your *development user's* ~/.bdsmrc.
+  First, set your extensions development path in your *development user's* ~/.smrc.
 %p
   On my system, I keep all my code related to the BDSM
-  project in ~/projects/bdsm/.
-  So my ~/.bdsmrc contains the following line:
+  project in ~/projects/sm/.
+  So my ~/.smrc contains the following line:
 
 %pre.code
   :preserve
-    export core_development_path="$HOME/projects/bdsm/core"
+    export core_development_path="$HOME/projects/sm/core"
 
 %p
   Next, clone the repositories into the development paths you've defined:
 %pre.code
   :preserve
-    user$ mkdir -p ~/projects/bdsm
-    user$ git clone git://github.com/sm/sm ~/projects/bdsm/core
+    user$ mkdir -p ~/projects/sm
+    user$ git clone git://github.com/sm/sm ~/projects/sm/core
 
 %p
   That's it - you are now ready to start working on BDSM core!
@@ -55,7 +55,7 @@
   There are four parts to the BDSM core framework:
   %ol
     %li Installer (./install)
-    %li Bootstrap script (bin/bdsm)
+    %li Bootstrap script (bin/sm)
     %li Core extensions (extensions/)
     %li Modules (modules/)
 
@@ -68,7 +68,7 @@
   To edit BDSM core in your preferred $EDITOR, run the command below.
 %pre.code
   :preserve
-    user$ bdsm core edit
+    user$ sm core edit
 %p
   Note that if you haven't already set an EDITOR variable
   in your shell, 'vi' launches in your terminal. (usually you'll do that in your ~/.bash_profile or ~/.zshenv).
@@ -79,7 +79,7 @@
   To edit BDSM's core extensions in your $EDITOR, run this command:
 %pre.code
   :preserve
-    user$ bdsm edit {{core,ext, or mod}}
+    user$ sm edit {{core,ext, or mod}}
 
 %h2
   Modules
@@ -87,24 +87,24 @@
   To edit BDSM's core modules in your $EDITOR, use this command:
 %pre.code
   :preserve
-    user$ bdsm module edit X
+    user$ sm module edit X
 %p
   You can instantly list all the core modules of BDSM, with:
 %pre.code
   :preserve
-    user$ bdsm modules list
+    user$ sm modules list
 %p
   Here's how to list all the DSL functions supported by any given module.
 %pre.code
   :preserve
-    user$ bdsm modules dsl {{module name}}
+    user$ sm modules dsl {{module name}}
 
 %p
   To create a new module, just do this:
 %pre.code
   :preserve
-    user$ bdsm module create newmodule
-    user$ bdsm module edit newmodule
+    user$ sm module create newmodule
+    user$ sm module edit newmodule
 
 %h2 Submitting core changes
 %p
@@ -121,7 +121,7 @@
   Next, add your forked GitHub repository as a remote.
 %pre.code
   :preserve
-    user$ cd $(bdsm core src)
+    user$ cd $(sm core src)
     user$ git remote add github git@github.com:{{your GitHub username}}/bdsm.git
 
 %p

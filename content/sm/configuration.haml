@@ -2,28 +2,28 @@
   %a{ :href => "/" }
     Documentation
   &nbsp;>&nbsp;
-  %a{ :href => "/bdsm/" }
-    bdsm
+  %a{ :href => "/sm/" }
+    sm
   &nbsp;>&nbsp;
-  %a{ :href => "/bdsm/configuration/" }
+  %a{ :href => "/sm/configuration/" }
     Configuration
   %hr
 
 %h1
   BDSM Configuration
 %p
-  BDSM's configuration directory is located at $bdsm_config_path, which for a
+  BDSM's configuration directory is located at $sm_config_path, which for a
   typical installation will be located in your $HOME directory, at
 %pre.code
   :preserve
-    ~/.bdsm/config/
+    ~/.sm/config/
 %h2
   Defaults
 %p
   BDSM's shipping defaults are stored in the file
 %pre.code
   :preserve
-    $bdsm_path/config/db
+    $sm_path/config/db
 %p
   Note: this file is replaced each time you upgrade bdsm, so do not edit it! If you need to, override it instead.
 
@@ -33,6 +33,7 @@
   To override bdsm's default settings, simply add appropriate key=value entry pairs into the file
 %pre.code
   :preserve
-    $bdsm_path/config/user
+    $sm_path/config/user
 %p
-  bdsm will then use these settings, instead of the built-in defaults.
+  sm will then use these settings, instead of the built-in defaults.
+
