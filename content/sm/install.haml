@@ -14,8 +14,8 @@
 
 %pre.code
   :preserve
-    version=$(curl https://bdsm.beginrescueend.com/releases/latest.txt) &&
-    curl -O https://bdsm.beginrescueend.com/releases/sm-${version}.tar.bz2 &&
+    version=$(curl https://smf.sh/releases/latest.txt) &&
+    curl -O https://smf.sh/releases/sm-${version}.tar.bz2 &&
     tar jxf sm-${version}.tar.bz2 &&
     cd sm-${version} &&
     ./install

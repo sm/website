@@ -2,7 +2,7 @@
 
 ## Bash Delectable Scripting Modules (BDSM) Framework Documentation WebSite
 
-You can see the documentation live online at http://bdsm.beginrescueend.com/.
+You can see the documentation live online at http://smf.sh/.
 Get the Site Running Locally
 
 If you're going to help you'll first need to get the site running locally.
@@ -88,7 +88,7 @@ On some linux systems you can do this,
 
     user$ xdg-open https://github.com/$githubuser/bdsm-site/tree/$branch
 
-It is advised to leave a message for me (wayneeseguin) in #beginrescueend on irc.freenode.net regarding the pull request and/or discuss your updates with me there. I am very happy to work with you to get your updates incorporated quickly.
+It is advised to leave a message for me (wayneeseguin) in #smf.sh on irc.freenode.net regarding the pull request and/or discuss your updates with me there. I am very happy to work with you to get your updates incorporated quickly.
 
 ## Thank YOU
 

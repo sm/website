@@ -1,6 +1,6 @@
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-24992786-1']);
-  _gaq.push(['_setDomainName', '.beginrescueend.com']);
+  _gaq.push(['_setDomainName', '.smf.sh']);
   _gaq.push(['_trackPageview']);
   _gaq.push(['_trackSocial', socialNetwork, socialAction]);
 
