@@ -3,11 +3,11 @@
 module CodeHelper
 
   def sh_cmd(command)
-    "<pre class='code'>∴ #{html_escape command}</pre>"
+    "<pre class='code'>% #{html_escape command}</pre>"
   end
 
   def root_command(command)
-    "<pre class='code'>root$ #{html_escape command}</pre>"
+    "<pre class='code'>root# #{html_escape command}</pre>"
   end
 
   def user_command(command)
