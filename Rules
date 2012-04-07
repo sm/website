@@ -43,7 +43,7 @@ end
 
 compile '*' do
   filter :haml
-  layout "bdsm"
+  layout "smf"
 end
 
 route '*' do
