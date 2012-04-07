@@ -1,0 +1,22 @@
+#!/bin/sh
+
+source "$HOME/.rvm/environments/default"
+
+cd "$HOME/current/"
+
+if [[ .gems ]] ; then
+  rvm gemset import .gems
+fi
+
+nanoc3 co --verbose
+
+declare _path
+
+if [[ -d "content/assets/images" ]]
+then rsync -avgz content/assets/images/ public/images/
+fi
+
+if [[ -d content/assets/pdf ]]
+then rsync -avgz content/assets/pdf/ public/pdf/
+fi
+
