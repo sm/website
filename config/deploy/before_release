@@ -4,8 +4,8 @@ source "$HOME/.rvm/environments/default"
 
 cd "$HOME/current/"
 
-if [[ .gems ]] ; then
-  rvm gemset import .gems
+if [[ -f .gems ]]
+then rvm gemset import .gems
 fi
 
 nanoc3 co --verbose
