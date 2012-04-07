@@ -4,9 +4,7 @@ source "$HOME/.rvm/environments/default"
 
 cd "$HOME/current/"
 
-if [[ -f .gems ]]
-then rvm gemset import .gems
-fi
+gem install --no-rdoc --no-ri haml compass nanoc
 
 nanoc3 co --verbose
 
