@@ -4,7 +4,9 @@ source "$HOME/.rvm/environments/default"
 
 cd "$HOME/current/"
 
-gem install --no-rdoc --no-ri haml compass nanoc
+if ! command -v nanoc
+then gem install --no-rdoc --no-ri haml compass nanoc
+fi
 
 export LC_ALL=en_US.UTF-8
 nanoc co --verbose
