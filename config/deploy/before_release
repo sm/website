@@ -6,6 +6,7 @@ cd "$HOME/current/"
 
 gem install --no-rdoc --no-ri haml compass nanoc
 
+export LC_ALL=en_US.UTF-8
 nanoc co --verbose
 
 declare _path
