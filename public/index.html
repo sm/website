@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S{cripting,ystem,tack} Management (SM) Framework</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="ico/favicon.png">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.theme.min.css" rel="stylesheet">
+    <link href="css/smf.sh.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">S{cripting,ystem,tack} Management (SM) Framework</a>
+				</div>
+			</div>
+			<div class="navbar-collapse collapse hidden">
+				<form class="navbar-form navbar-right" role="form">
+					<div class="form-group">
+						<input type="text" placeholder="Email" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="password" placeholder="Password" class="form-control">
+					</div>
+					<button type="submit" class="btn btn-success">Sign in</button>
+				</form>
+			</div><!--/.navbar-collapse -->
+		</div>
+	</div>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1>SM Framework</h1>
+			<p>The SM framework is a framework for developing, maintaining and sharing scripts, while exposing them for easy automation via a clean, consistent DSL-centric command-line interface.</p>
+			<h2>Core</h2>
+			SM Framework Core (sm) is installed onto a system and is then used to manage that system through extensions.
+			<h3>Dependencies</h3>
+			<p>The primary requirement for sm is zsh (>= 4.2), 
+secondarily are standard unix tools such as 
+{bash (>= 3.2), GNU awk, GNU sed, grep, which, ls, cp, tar, curl, gunzip, bunzip2}. 
+While not a direct dependency, nearly all open source extensions currently install via git (> 1.7). </p>
+			<h3>Installing SM Core</h3>
+			<p>curl -Ls https://install.smf.sh | bash -</p>
+			<h2>Extensions ( Modules )</h2>
+			<p>SM is a tool install, manage and execute extensions. 
+			All system management functionality happens through extensions.</p>
+			<p>
+			Extensions are directories that contain a bin and/or shell directory at minimum. 
+			Executable scripts within this directory's bin directory are exposed on the sm command line once the extension is installed.
+			</p>
+			<h3>Hello World Extension</h3>
+			<p>
+			Traditionally we write hello world to show features of a language, so lets use this idea in the context of an sm extension.
+			</p>
+<pre>
+mkdir -p example/bin
+echo '#!/bin/sh' > example/bin/world 
+echo "echo '~> Hello World!'" >> example/bin/world
+chmod +x example/bin/world
+</pre>
+			<p>
+			Then with sm (see sm install section below) we install the extension from 
+			the 'example' directory we just created <pre>sm ext install hello ./example</pre>
+			Now we can call the 'world' script in the 'hello' extension via sm: 
+			</p>
+<pre>
+sm hello world
+~> Hello World!
+</pre>
+			<h3>Extension Directory Layout</h3>
+			<p>Extensions can have any arbitrary subdirectories that you deem necessary. 
+			There are a few that have special meaning if using the shell scripting APIs.
+			Let's look at a directory tree of an example extension.</p>
+<pre>
+example/
+├── bin/
+├── config/
+│   ├── defaults
+├── shell/
+│   ├── functions
+│   ├── includes
+│   └── initialize
+└── templates/
+</pre>
+			<p>
+			Executable files exposed from within the bin directory can be of any type 
+			that can be executed/interpreted by the target system. 
+			For example they can be binary, shell, or other scripting languages.
+			If you write the scripts as shell scripts they will be interpreted by zsh 
+			and you can include any shell language APIs you'd like to make your scripts 
+			more readable and debuggable.
+			</p>
+			<p>The shell/ directory is used with the shell language APIs to run scripts 
+			in bin/.
+			When running a shell bin script first any shell language API's you would like 
+			to include (next section) are included in the shell/includes file, one per line. 
+			Any functions you define in the shell/functions file are sourced next.
+			After functions are loaded the shell/initilize file is sourced next.
+			Finally after the above are complete your bin shell script is sourced within 
+			the context of the APIs, functions and initialize scripts.
+			</p>
+			<p>This gives you a simple mechanism for sharing code across the bin shell 
+			scripts within the extension.</p>
+			<p>Depending on what you are doing you may want to store configuration 
+			defaults. This can be done in the config/defaults file.</p>
+			<h2>Langauge APIs</h2>
+			A core concept with the SM framework is that of creating language specific 
+			APIs to make system scripting and management simpler, debuggable and os 
+			agnostic (to the extent possible).
+			The most robust example of this to date is the 
+			<a href="https://github.com/sm/sm/tree/master/core/api/shell">shell API</a>.
+			<h2>Repositories</h2>
+			All Open Source SM Framework repositories can be found in the 
+			<a href="https://github.com/sm/">github sm organization</a>.
+			<h3>Core Repositories</h3>
+			Core repositories are <a href="https://github.com/sm/sm">sm</a>, and 
+			<a href="https://github.com/sm/util">sm-util</a>, 
+			the version 1.0.0 repository is forthcoming and is written in 
+			<a href="http://golang.org">go</a>.
+			<h3>Extension Repositories</h3>
+			<p>Single extension repositories are separated with an underscore
+			"sm_" while sets of extensions (a directory with extensions as sub 
+			directories) are separated with a hyphen "sm-".
+			</p>
+			<h2>Community</h2>
+			<p>IRC Channel is #smf.sh on irc.freenode.net where you can ask questions 
+			and participate. </p>
+	</div>
+</div>
+
+<div class="container">
+	<hr/>
+		<footer>
+		<p>&copy; Wayne E. Seguin (wayneeseguin@gmail.com)</p>
+		</footer>
+	</div> <!-- /container -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="https://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>&#x000A;<script src="/javascripts/ga.js" type="text/javascript"></script>&#x000A;<script src="/javascripts/site.js" type="text/javascript"></script>&#x000A;<script type="text/javascript"> var _gaq = _gaq || [];&#x000A;_gaq.push(['_setAccount', 'UA-24992786-1']);&#x000A;_gaq.push(['_setDomainName', 'smf.sh']);&#x000A;_gaq.push(['_trackPageview']);&#x000A;(function() {&#x000A;var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;&#x000A;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';&#x000A;var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);&#x000A;})(); </script>
+</body>
+</html>
