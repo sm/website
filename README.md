@@ -1,4 +1,4 @@
-# S{cripting,ystem,tack} Management (SM) Framework (Core) Website
+# Realdiamond Website
 
 ## Requirements
 
